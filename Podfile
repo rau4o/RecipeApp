@@ -10,5 +10,6 @@ target 'RecipeSearchApp' do
   pod "IQKeyboardManager"
   pod 'Moya'
   pod 'Kingfisher'
+  pod 'BmoViewPager', '~> 4.2.2'
 
 end
