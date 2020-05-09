@@ -28,6 +28,8 @@ struct Recipe: Decodable {
     let url: String
     let shareAs: String
     let yield: Int
+    let calories: Float
+    let totalWeight: Float
     let dietLabels, healthLabels, cautions: [String]
     let ingredientLines: [String]
 }

@@ -27,6 +27,11 @@ class SearchController: UIViewController {
         super.viewDidLoad()
         initialSetup()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        clearSelectionForCell()
+        super.viewDidAppear(animated)
+    }
 }
 
 extension SearchController: SearchProtocol {
@@ -89,6 +94,7 @@ private extension SearchController {
         tableView.register(SearchCell.self, forCellReuseIdentifier: cellId)
         tableView.delegate = self
         tableView.dataSource = viewModel.dataSource
+        tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = .none
         tableView.backgroundView = activityIndicatorView
     }
@@ -108,5 +114,10 @@ private extension SearchController {
         activityIndicatorView.setDimension(height: 100, width: 100)
         activityIndicatorView.style = UIActivityIndicatorView.Style.medium
         activityIndicatorView.center = self.view.center
+    }
+    
+    func clearSelectionForCell() {
+        guard let selectedIndexPath = tableView.indexPathForSelectedRow else { return }
+        tableView.deselectRow(at: selectedIndexPath, animated: true)
     }
 }

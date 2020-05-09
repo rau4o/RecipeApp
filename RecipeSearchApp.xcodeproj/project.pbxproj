@@ -24,6 +24,7 @@
 		AECBCEB12465524500D501EE /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECBCEB02465524500D501EE /* Recipe.swift */; };
 		AECBCEB72465B4C400D501EE /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECBCEB62465B4C400D501EE /* SearchViewModel.swift */; };
 		AECBCEBA2465B58200D501EE /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECBCEB92465B58200D501EE /* TableViewDataSource.swift */; };
+		AEFBBD722467086C00FF22C5 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFBBD712467086C00FF22C5 /* MainTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		AECBCEB02465524500D501EE /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		AECBCEB62465B4C400D501EE /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		AECBCEB92465B58200D501EE /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
+		AEFBBD712467086C00FF22C5 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		CFEA441859BC1A6F0734AD6A /* Pods_RecipeSearchApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecipeSearchApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8B1E19C3AA58B0FFC229CA6 /* Pods-RecipeSearchApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipeSearchApp.debug.xcconfig"; path = "Target Support Files/Pods-RecipeSearchApp/Pods-RecipeSearchApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,6 +130,7 @@
 		AE360A7E2464119800091C0E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				AEFBBD702467085100FF22C5 /* TabBarController */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -207,6 +210,14 @@
 				AECBCEAE2464909100D501EE /* NetworkService.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		AEFBBD702467085100FF22C5 /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				AEFBBD712467086C00FF22C5 /* MainTabBarController.swift */,
+			);
+			path = TabBarController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,6 +345,7 @@
 				AECBCEA524647BA700D501EE /* SearchCell.swift in Sources */,
 				AE360A6A246410CF00091C0E /* AppDelegate.swift in Sources */,
 				AE360A6C246410CF00091C0E /* SceneDelegate.swift in Sources */,
+				AEFBBD722467086C00FF22C5 /* MainTabBarController.swift in Sources */,
 				AECBCEBA2465B58200D501EE /* TableViewDataSource.swift in Sources */,
 				AECBCEA22464758600D501EE /* SearchController.swift in Sources */,
 				AECBCEB12465524500D501EE /* Recipe.swift in Sources */,

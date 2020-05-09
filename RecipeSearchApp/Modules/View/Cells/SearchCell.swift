@@ -16,21 +16,42 @@ class SearchCell: UITableViewCell {
     private let cardView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 10
-        view.backgroundColor = .red
+        view.backgroundColor = .white
+        view.addShadow()
         return view
     }()
     
-    let titleLabel: UILabel = {
+    lazy private var titleLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .purple
+//        label.backgroundColor = .purple
+        label.numberOfLines = 0
+        label.minimumScaleFactor = 0.8
+        label.sizeToFit()
         label.font = UIFont.boldSystemFont(ofSize: 15)
         return label
     }()
     
-    let descLabel: UILabel = {
+    lazy private var descLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .orange
-        label.font = UIFont.systemFont(ofSize: 10)
+//        label.backgroundColor = .orange
+        label.font = UIFont.systemFont(ofSize: 12)
+        return label
+    }()
+    
+    lazy private var caloriesLabel: UILabel = {
+        let label = UILabel()
+//        label.backgroundColor = .orange
+        label.font = UIFont.systemFont(ofSize: 12)
+        return label
+    }()
+    
+    lazy private var nutrientsLabel: UILabel = {
+        let label = UILabel()
+//        label.backgroundColor = .red
+        label.numberOfLines = 0
+        label.minimumScaleFactor = 0.8
+        label.sizeToFit()
+        label.font = UIFont.systemFont(ofSize: 12)
         return label
     }()
     
@@ -38,6 +59,15 @@ class SearchCell: UITableViewCell {
         let image = UIImageView()
         image.contentMode = .scaleAspectFill
         return image
+    }()
+    
+    lazy private var stackView: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [titleLabel,descLabel,caloriesLabel,nutrientsLabel])
+        stack.axis = .vertical
+        stack.distribution = .fillEqually
+        stack.spacing = 5
+        stack.alignment = .fill
+        return stack
     }()
     
     // MARK: - Initial
@@ -50,21 +80,20 @@ class SearchCell: UITableViewCell {
     private func layoutUI() {
         addSubview(cardView)
         cardView.addSubview(imageUrl)
-        cardView.addSubview(titleLabel)
-        cardView.addSubview(descLabel)
+        cardView.addSubview(stackView)
         
         cardView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 5, paddingLeft: 5, paddingBottom: 5, paddingRight: 5)
         
         imageUrl.anchor(top: cardView.topAnchor, left: cardView.leftAnchor, bottom: cardView.bottomAnchor, right: nil, paddingTop: 10, paddingLeft: 10, paddingBottom: 10, paddingRight: 0, width: 100)
         
-        titleLabel.anchor(top: imageUrl.topAnchor, left: imageUrl.rightAnchor, paddingTop: 5, paddingLeft: 10, paddingBottom: 0, paddingRight: 0, width: 100, height: 40)
-        
-        descLabel.anchor(top: nil, left: titleLabel.leftAnchor, bottom: imageUrl.bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 5, paddingRight: 0, width: 100, height: 30)
+        stackView.anchor(top: imageUrl.topAnchor, left: imageUrl.rightAnchor, bottom: imageUrl.bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 15, paddingBottom: 0, paddingRight: 10)
     }
     
     func configureCell(recipe: Recipe) {
-        titleLabel.text = recipe.label
-        descLabel.text = recipe.source
+        titleLabel.text = "Recipe title: \(recipe.label)"
+        descLabel.text = "Source site identifier: \(recipe.source)"
+        caloriesLabel.text = "Total energy: \(recipe.calories) kcal"
+        nutrientsLabel.text = recipe.dietLabels.map({ ("Diet label: \($0)")}).joined(separator: ",")
         imageUrl.kf.indicatorType = .activity
         if let url = URL(string: recipe.image) {
             imageUrl.kf.setImage(with: url)
