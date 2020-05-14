@@ -21,38 +21,23 @@ class MainCollectionCell: UITableViewCell {
     }()
     
     let categoryFoodLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
-        label.textColor = #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1)
-        return label
+        return UILabel(font: .systemFont(ofSize: 14, weight: .medium), textColor: #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1))
     }()
     
     let titleFood: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: 16, weight: .light)
-        return label
+        return UILabel(font: .systemFont(ofSize: 16, weight: .light), numberOfLines: 0)
     }()
     
     let labelOne: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
-        label.textColor = #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1)
-        return label
+        return UILabel(font: .systemFont(ofSize: 12, weight: .semibold), textColor: #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1))
     }()
     
     let labelTwo: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
-        label.textColor = #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1)
-        return label
+        return UILabel(font: .systemFont(ofSize: 12, weight: .semibold), textColor: #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1))
     }()
     
     let labelThree: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
-        label.textColor = #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1)
-        return label
+        return UILabel(font: .systemFont(ofSize: 12, weight: .semibold), textColor: #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1))
     }()
     
     lazy private var stackView: UIStackView = {

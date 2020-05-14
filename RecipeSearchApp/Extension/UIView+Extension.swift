@@ -74,5 +74,4 @@ extension UIView {
         heightAnchor.constraint(equalToConstant: height).isActive = true
         widthAnchor.constraint(equalToConstant: width).isActive = true
     }
-    
 }

@@ -16,9 +16,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = MainTabbar()
+        window?.rootViewController = getConfiguredController()
         window?.makeKeyAndVisible()
         window?.windowScene = windowScene
+    }
+    
+    func getConfiguredController() -> UITabBarController {
+        
+        let firstViewController = UINavigationController(rootViewController: MenuController())
+        firstViewController.tabBarItem = UITabBarItem(title: "Menu", image: #imageLiteral(resourceName: "homePressed"), tag: 0)
+        let secondViewController = UINavigationController(rootViewController: SearchController())
+        secondViewController.tabBarItem = UITabBarItem(title: "Search", image: #imageLiteral(resourceName: "search"), tag: 1)
+        let thirdViewController = UINavigationController(rootViewController: FavoriteController())
+        thirdViewController.tabBarItem = UITabBarItem(title: "Favorite", image: #imageLiteral(resourceName: "like"), tag: 2)
+        
+        let tabBarViewController = BEKCurveTabbarController.instantiate()
+        
+        let myViewModel = MyCustomTabBarViewModel()
+        
+        tabBarViewController.setupViewModel(viewModel: myViewModel)
+        
+        tabBarViewController.setViewControllers([firstViewController, secondViewController, thirdViewController], animated: true)
+        return tabBarViewController
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -33,7 +33,7 @@ class MenuController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        view.backgroundColor = .white
         layoutUI()
         fetchFood()
         configureIndicatorView()
@@ -41,14 +41,13 @@ class MenuController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        indicatorView.startAnimating()
     }
     
     // MARK: - Helper function
     
     private func fetchFood() {
         indicatorView.startAnimating()
-        viewModel.searchRecipe(with: "search") { [weak self] in
+        viewModel.searchRecipe(with: "hello") { [weak self] in
             guard let self = self else {return}
             self.tableView.reloadData()
             self.indicatorView.stopAnimating()
@@ -61,8 +60,7 @@ class MenuController: UIViewController {
     }
     
     private func layoutUI() {
-        view.addSubview(tableView)
-        view.addSubview(indicatorView)
+        view.addSubviews([tableView, indicatorView])
         
         tableView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 5, paddingRight: 0)
         indicatorView.centerX(inView: view)
@@ -75,7 +73,10 @@ class MenuController: UIViewController {
 
 extension MenuController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("pressed")
+        let recipe = viewModel.getElements(at: indexPath.row)
+        navigationController?.pushViewController(DetailController.shared, animated: true)
+        DetailController.shared.detailView.configureUI(recipe: recipe)
+        DetailController.shared.additionalLabel.text = recipe.ingredientLines.map({ ("● \($0)")}).joined(separator: "\n")
     }
 }
 

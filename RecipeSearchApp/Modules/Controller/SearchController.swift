@@ -19,8 +19,7 @@ class SearchController: UIViewController {
     fileprivate lazy var searchController = UISearchController(searchResultsController: nil)
     fileprivate lazy var tableView = UITableView()
     var viewModel = SearchViewModel()
-    var activityIndicatorView = UIActivityIndicatorView()
-    let detailController = DetailController()
+    lazy var activityIndicatorView = UIActivityIndicatorView()
     
     // MARK: - Lifecycle
 
@@ -31,9 +30,9 @@ class SearchController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         clearSelectionForCell()
         navigationController?.navigationBar.isHidden = false
-        super.viewDidAppear(animated)
     }
 }
 
@@ -72,8 +71,9 @@ extension SearchController: UISearchBarDelegate {
 extension SearchController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let recipe = viewModel.getElements(at: indexPath.row)
-        navigationController?.pushViewController(detailController, animated: true)
-        detailController.detailView.configureUI(recipe: recipe)
+        navigationController?.pushViewController(DetailController.shared, animated: true)
+        DetailController.shared.detailView.configureUI(recipe: recipe)
+        DetailController.shared.additionalLabel.text = recipe.ingredientLines.map({ ("● \($0)")}).joined(separator: "\n")
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -84,7 +84,7 @@ extension SearchController: UITableViewDelegate {
 private extension SearchController {
     
     func initialSetup() {
-        view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        view.backgroundColor = .white
         setupNavigationBar()
         setupViews()
         setupTableView()
@@ -107,9 +107,8 @@ private extension SearchController {
         tableView.delegate = self
         tableView.dataSource = viewModel.dataSource
         tableView.showsVerticalScrollIndicator = false
-        tableView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        tableView.backgroundColor = .white
         tableView.separatorStyle = .none
-        tableView.backgroundView = activityIndicatorView
     }
     
     func setupSearchController() {
@@ -120,13 +119,13 @@ private extension SearchController {
     }
     
     func setupViews() {
-        view.addSubview(tableView)
-        view.addSubview(activityIndicatorView)
+        view.addSubviews([tableView,activityIndicatorView])
+        
         tableView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
+        
         activityIndicatorView.centerY(inView: view)
         activityIndicatorView.centerX(inView: view)
         activityIndicatorView.setDimension(height: 100, width: 100)
-        activityIndicatorView.style = UIActivityIndicatorView.Style.medium
     }
     
     func clearSelectionForCell() {

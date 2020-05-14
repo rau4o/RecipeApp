@@ -20,7 +20,13 @@
 		AE360A76246410D000091C0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE360A74246410D000091C0E /* LaunchScreen.storyboard */; };
 		AE84C95C246D7EE200F7166B /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE84C95B246D7EE200F7166B /* UILabel+Extension.swift */; };
 		AE84C95E246D822E00F7166B /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE84C95D246D822E00F7166B /* UITextView+Extension.swift */; };
-		AEC95317246866B20068B6EE /* MainTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC95316246866B20068B6EE /* MainTabbar.swift */; };
+		AE84C966246DB25900F7166B /* BEKCurveTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE84C960246DB25900F7166B /* BEKCurveTabbarController.swift */; };
+		AE84C967246DB25900F7166B /* DefaultTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE84C961246DB25900F7166B /* DefaultTabBarViewModel.swift */; };
+		AE84C968246DB25900F7166B /* BEKCurveTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE84C962246DB25900F7166B /* BEKCurveTabbar.swift */; };
+		AE84C969246DB25900F7166B /* BEKTabBarViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE84C963246DB25900F7166B /* BEKTabBarViewModelType.swift */; };
+		AE84C96A246DB25900F7166B /* TabbarHeightRatios.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE84C964246DB25900F7166B /* TabbarHeightRatios.swift */; };
+		AE84C96B246DB25900F7166B /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE84C965246DB25900F7166B /* Storyboard.storyboard */; };
+		AE84C96D246DB2D700F7166B /* MyCustomTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE84C96C246DB2D600F7166B /* MyCustomTabBarViewModel.swift */; };
 		AECBCEA22464758600D501EE /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECBCEA12464758600D501EE /* SearchController.swift */; };
 		AECBCEA524647BA700D501EE /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECBCEA424647BA700D501EE /* SearchCell.swift */; };
 		AECBCEA724647D7200D501EE /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECBCEA624647D7200D501EE /* UIView+Extension.swift */; };
@@ -51,7 +57,13 @@
 		AE360A77246410D000091C0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE84C95B246D7EE200F7166B /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		AE84C95D246D822E00F7166B /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
-		AEC95316246866B20068B6EE /* MainTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbar.swift; sourceTree = "<group>"; };
+		AE84C960246DB25900F7166B /* BEKCurveTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BEKCurveTabbarController.swift; sourceTree = "<group>"; };
+		AE84C961246DB25900F7166B /* DefaultTabBarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultTabBarViewModel.swift; sourceTree = "<group>"; };
+		AE84C962246DB25900F7166B /* BEKCurveTabbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BEKCurveTabbar.swift; sourceTree = "<group>"; };
+		AE84C963246DB25900F7166B /* BEKTabBarViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BEKTabBarViewModelType.swift; sourceTree = "<group>"; };
+		AE84C964246DB25900F7166B /* TabbarHeightRatios.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarHeightRatios.swift; sourceTree = "<group>"; };
+		AE84C965246DB25900F7166B /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		AE84C96C246DB2D600F7166B /* MyCustomTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomTabBarViewModel.swift; sourceTree = "<group>"; };
 		AECBCEA12464758600D501EE /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		AECBCEA424647BA700D501EE /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		AECBCEA624647D7200D501EE /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -216,6 +228,19 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		AE84C95F246DB25900F7166B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AE84C960246DB25900F7166B /* BEKCurveTabbarController.swift */,
+				AE84C961246DB25900F7166B /* DefaultTabBarViewModel.swift */,
+				AE84C962246DB25900F7166B /* BEKCurveTabbar.swift */,
+				AE84C963246DB25900F7166B /* BEKTabBarViewModelType.swift */,
+				AE84C964246DB25900F7166B /* TabbarHeightRatios.swift */,
+				AE84C965246DB25900F7166B /* Storyboard.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		AECBCEA324647B7A00D501EE /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,7 +264,8 @@
 		AEFBBD702467085100FF22C5 /* TabBarController */ = {
 			isa = PBXGroup;
 			children = (
-				AEC95316246866B20068B6EE /* MainTabbar.swift */,
+				AE84C95F246DB25900F7166B /* Resources */,
+				AE84C96C246DB2D600F7166B /* MyCustomTabBarViewModel.swift */,
 			);
 			path = TabBarController;
 			sourceTree = "<group>";
@@ -305,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE360A76246410D000091C0E /* LaunchScreen.storyboard in Resources */,
+				AE84C96B246DB25900F7166B /* Storyboard.storyboard in Resources */,
 				AE360A73246410D000091C0E /* Assets.xcassets in Resources */,
 				AE360A71246410CF00091C0E /* Main.storyboard in Resources */,
 			);
@@ -361,21 +388,26 @@
 			files = (
 				AECBCEAF2464909100D501EE /* NetworkService.swift in Sources */,
 				AE2630C9246983D700DF1926 /* MenuController.swift in Sources */,
+				AE84C969246DB25900F7166B /* BEKTabBarViewModelType.swift in Sources */,
 				AECBCEA724647D7200D501EE /* UIView+Extension.swift in Sources */,
 				AE2630CF246AA95100DF1926 /* MenuViewModel.swift in Sources */,
+				AE84C966246DB25900F7166B /* BEKCurveTabbarController.swift in Sources */,
 				AECBCEAB24648E4C00D501EE /* NetworkProperties.swift in Sources */,
 				AE2630CB2469845200DF1926 /* MainCollectionCell.swift in Sources */,
 				AECBCEA924648AEC00D501EE /* RecipeNetworking.swift in Sources */,
 				AE360A6E246410CF00091C0E /* ViewController.swift in Sources */,
 				AECBCEAD2464903D00D501EE /* RecipeService.swift in Sources */,
+				AE84C968246DB25900F7166B /* BEKCurveTabbar.swift in Sources */,
+				AE84C96D246DB2D700F7166B /* MyCustomTabBarViewModel.swift in Sources */,
 				AECBCEB72465B4C400D501EE /* SearchViewModel.swift in Sources */,
-				AEC95317246866B20068B6EE /* MainTabbar.swift in Sources */,
 				AECBCEA524647BA700D501EE /* SearchCell.swift in Sources */,
+				AE84C96A246DB25900F7166B /* TabbarHeightRatios.swift in Sources */,
 				AE360A6A246410CF00091C0E /* AppDelegate.swift in Sources */,
 				AE84C95E246D822E00F7166B /* UITextView+Extension.swift in Sources */,
 				AEFBBD7924670F7B00FF22C5 /* DetailView.swift in Sources */,
 				AE360A6C246410CF00091C0E /* SceneDelegate.swift in Sources */,
 				AE2630CD2469895E00DF1926 /* FavoriteController.swift in Sources */,
+				AE84C967246DB25900F7166B /* DefaultTabBarViewModel.swift in Sources */,
 				AECBCEBA2465B58200D501EE /* TableViewDataSource.swift in Sources */,
 				AE84C95C246D7EE200F7166B /* UILabel+Extension.swift in Sources */,
 				AECBCEA22464758600D501EE /* SearchController.swift in Sources */,

@@ -29,13 +29,11 @@ class SearchCell: UITableViewCell {
     }()
     
     lazy private var descLabel: UILabel = {
-        let label = UILabel(font: .systemFont(ofSize: 12))
-        return label
+        return UILabel(font: .systemFont(ofSize: 12))
     }()
     
     lazy private var caloriesLabel: UILabel = {
-        let label = UILabel(font: .systemFont(ofSize: 12))
-        return label
+        return UILabel(font: .systemFont(ofSize: 12))
     }()
     
     lazy private var nutrientsLabel: UILabel = {

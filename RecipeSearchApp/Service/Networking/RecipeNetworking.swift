@@ -10,7 +10,6 @@ import Moya
 
 enum RecipeNetworking {
     case searchRecipe(query: String)
-//    case fetchFood()
 }
 
 extension RecipeNetworking: TargetType {
@@ -22,14 +21,10 @@ extension RecipeNetworking: TargetType {
         return url
     }
     
-//    https://api.edamam.com/api/food-database/parser?nutrition-type=logging&ingr=red%20apple&app_id={your app_id}&app_key={your app_key}
-    
     var path: String {
         switch self {
         case .searchRecipe:
             return "search"
-//        case .fetchFood:
-//            return "api/food-database/parser"
         }
     }
     
@@ -45,8 +40,6 @@ extension RecipeNetworking: TargetType {
         switch self {
         case .searchRecipe(let query):
             return .requestParameters(parameters: ["q": query,"app_id": NetworkProperties.APP_ID, "app_key": NetworkProperties.API_KEY], encoding: URLEncoding.default)
-//        case .fetchFood():
-//            return .requestParameters(parameters: ["": "","app_id": NetworkProperties.APP_ID, "app_key": NetworkProperties.API_KEY], encoding: URLEncoding.default)
         }
     }
     
