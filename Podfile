@@ -11,5 +11,6 @@ target 'RecipeSearchApp' do
   pod 'Moya'
   pod 'Kingfisher'
   pod 'BmoViewPager', '~> 4.2.2'
+  pod 'CircleBar', '~> 0.8.2'
 
 end

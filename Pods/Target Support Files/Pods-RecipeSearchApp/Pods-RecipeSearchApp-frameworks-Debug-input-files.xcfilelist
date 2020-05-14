@@ -1,6 +1,7 @@
 ${PODS_ROOT}/Target Support Files/Pods-RecipeSearchApp/Pods-RecipeSearchApp-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/BmoViewPager/BmoViewPager.framework
+${BUILT_PRODUCTS_DIR}/CircleBar/CircleBar.framework
 ${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework
 ${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
 ${BUILT_PRODUCTS_DIR}/Moya/Moya.framework

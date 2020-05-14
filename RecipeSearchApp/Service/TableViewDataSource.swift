@@ -37,6 +37,7 @@ final class TableViewDataSource<Model,Cell: UITableViewCell>: NSObject, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = models[indexPath.row]
         let cell: Cell = tableView.dequeueCell(withIdentifier: reuseIdentifier, for: indexPath)
+        cell.selectionStyle = .none
         cellConfigurator(model,cell)
         return cell
     }

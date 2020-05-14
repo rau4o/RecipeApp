@@ -22,36 +22,26 @@ class SearchCell: UITableViewCell {
     }()
     
     lazy private var titleLabel: UILabel = {
-        let label = UILabel()
-//        label.backgroundColor = .purple
-        label.numberOfLines = 0
+        let label = UILabel(font: .boldSystemFont(ofSize: 15), numberOfLines: 0)
         label.minimumScaleFactor = 0.8
         label.sizeToFit()
-        label.font = UIFont.boldSystemFont(ofSize: 15)
         return label
     }()
     
     lazy private var descLabel: UILabel = {
-        let label = UILabel()
-//        label.backgroundColor = .orange
-        label.font = UIFont.systemFont(ofSize: 12)
+        let label = UILabel(font: .systemFont(ofSize: 12))
         return label
     }()
     
     lazy private var caloriesLabel: UILabel = {
-        let label = UILabel()
-//        label.backgroundColor = .orange
-        label.font = UIFont.systemFont(ofSize: 12)
+        let label = UILabel(font: .systemFont(ofSize: 12))
         return label
     }()
     
     lazy private var nutrientsLabel: UILabel = {
-        let label = UILabel()
-//        label.backgroundColor = .red
-        label.numberOfLines = 0
+        let label = UILabel(font: .systemFont(ofSize: 12), numberOfLines: 0)
         label.minimumScaleFactor = 0.8
         label.sizeToFit()
-        label.font = UIFont.systemFont(ofSize: 12)
         return label
     }()
     

@@ -8,12 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		66FC166EBB573B839B56458F /* Pods_RecipeSearchApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFEA441859BC1A6F0734AD6A /* Pods_RecipeSearchApp.framework */; };
+		AE2630C9246983D700DF1926 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2630C8246983D700DF1926 /* MenuController.swift */; };
+		AE2630CB2469845200DF1926 /* MainCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2630CA2469845200DF1926 /* MainCollectionCell.swift */; };
+		AE2630CD2469895E00DF1926 /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2630CC2469895E00DF1926 /* FavoriteController.swift */; };
+		AE2630CF246AA95100DF1926 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2630CE246AA95100DF1926 /* MenuViewModel.swift */; };
 		AE360A6A246410CF00091C0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE360A69246410CF00091C0E /* AppDelegate.swift */; };
 		AE360A6C246410CF00091C0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE360A6B246410CF00091C0E /* SceneDelegate.swift */; };
 		AE360A6E246410CF00091C0E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE360A6D246410CF00091C0E /* ViewController.swift */; };
 		AE360A71246410CF00091C0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE360A6F246410CF00091C0E /* Main.storyboard */; };
 		AE360A73246410D000091C0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE360A72246410D000091C0E /* Assets.xcassets */; };
 		AE360A76246410D000091C0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE360A74246410D000091C0E /* LaunchScreen.storyboard */; };
+		AE84C95C246D7EE200F7166B /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE84C95B246D7EE200F7166B /* UILabel+Extension.swift */; };
+		AE84C95E246D822E00F7166B /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE84C95D246D822E00F7166B /* UITextView+Extension.swift */; };
+		AEC95317246866B20068B6EE /* MainTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC95316246866B20068B6EE /* MainTabbar.swift */; };
 		AECBCEA22464758600D501EE /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECBCEA12464758600D501EE /* SearchController.swift */; };
 		AECBCEA524647BA700D501EE /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECBCEA424647BA700D501EE /* SearchCell.swift */; };
 		AECBCEA724647D7200D501EE /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECBCEA624647D7200D501EE /* UIView+Extension.swift */; };
@@ -24,11 +31,16 @@
 		AECBCEB12465524500D501EE /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECBCEB02465524500D501EE /* Recipe.swift */; };
 		AECBCEB72465B4C400D501EE /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECBCEB62465B4C400D501EE /* SearchViewModel.swift */; };
 		AECBCEBA2465B58200D501EE /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECBCEB92465B58200D501EE /* TableViewDataSource.swift */; };
-		AEFBBD722467086C00FF22C5 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFBBD712467086C00FF22C5 /* MainTabBarController.swift */; };
+		AEFBBD7724670CA300FF22C5 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFBBD7624670CA300FF22C5 /* DetailController.swift */; };
+		AEFBBD7924670F7B00FF22C5 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFBBD7824670F7B00FF22C5 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0FBD97659229AC8288B388A3 /* Pods-RecipeSearchApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipeSearchApp.release.xcconfig"; path = "Target Support Files/Pods-RecipeSearchApp/Pods-RecipeSearchApp.release.xcconfig"; sourceTree = "<group>"; };
+		AE2630C8246983D700DF1926 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		AE2630CA2469845200DF1926 /* MainCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionCell.swift; sourceTree = "<group>"; };
+		AE2630CC2469895E00DF1926 /* FavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
+		AE2630CE246AA95100DF1926 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		AE360A66246410CF00091C0E /* RecipeSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE360A69246410CF00091C0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE360A6B246410CF00091C0E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +49,9 @@
 		AE360A72246410D000091C0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE360A75246410D000091C0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE360A77246410D000091C0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE84C95B246D7EE200F7166B /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		AE84C95D246D822E00F7166B /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
+		AEC95316246866B20068B6EE /* MainTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbar.swift; sourceTree = "<group>"; };
 		AECBCEA12464758600D501EE /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		AECBCEA424647BA700D501EE /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		AECBCEA624647D7200D501EE /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -47,7 +62,8 @@
 		AECBCEB02465524500D501EE /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		AECBCEB62465B4C400D501EE /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		AECBCEB92465B58200D501EE /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
-		AEFBBD712467086C00FF22C5 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		AEFBBD7624670CA300FF22C5 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
+		AEFBBD7824670F7B00FF22C5 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		CFEA441859BC1A6F0734AD6A /* Pods_RecipeSearchApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecipeSearchApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8B1E19C3AA58B0FFC229CA6 /* Pods-RecipeSearchApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipeSearchApp.debug.xcconfig"; path = "Target Support Files/Pods-RecipeSearchApp/Pods-RecipeSearchApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,6 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				AECBCEA624647D7200D501EE /* UIView+Extension.swift */,
+				AE84C95B246D7EE200F7166B /* UILabel+Extension.swift */,
+				AE84C95D246D822E00F7166B /* UITextView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -165,6 +183,9 @@
 			isa = PBXGroup;
 			children = (
 				AECBCEA12464758600D501EE /* SearchController.swift */,
+				AEFBBD7624670CA300FF22C5 /* DetailController.swift */,
+				AE2630C8246983D700DF1926 /* MenuController.swift */,
+				AE2630CC2469895E00DF1926 /* FavoriteController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -173,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				AECBCEB62465B4C400D501EE /* SearchViewModel.swift */,
+				AE2630CE246AA95100DF1926 /* MenuViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -181,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				AECBCEA324647B7A00D501EE /* Cells */,
+				AEFBBD7824670F7B00FF22C5 /* DetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -197,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				AECBCEA424647BA700D501EE /* SearchCell.swift */,
+				AE2630CA2469845200DF1926 /* MainCollectionCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -215,7 +239,7 @@
 		AEFBBD702467085100FF22C5 /* TabBarController */ = {
 			isa = PBXGroup;
 			children = (
-				AEFBBD712467086C00FF22C5 /* MainTabBarController.swift */,
+				AEC95316246866B20068B6EE /* MainTabbar.swift */,
 			);
 			path = TabBarController;
 			sourceTree = "<group>";
@@ -336,18 +360,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				AECBCEAF2464909100D501EE /* NetworkService.swift in Sources */,
+				AE2630C9246983D700DF1926 /* MenuController.swift in Sources */,
 				AECBCEA724647D7200D501EE /* UIView+Extension.swift in Sources */,
+				AE2630CF246AA95100DF1926 /* MenuViewModel.swift in Sources */,
 				AECBCEAB24648E4C00D501EE /* NetworkProperties.swift in Sources */,
+				AE2630CB2469845200DF1926 /* MainCollectionCell.swift in Sources */,
 				AECBCEA924648AEC00D501EE /* RecipeNetworking.swift in Sources */,
 				AE360A6E246410CF00091C0E /* ViewController.swift in Sources */,
 				AECBCEAD2464903D00D501EE /* RecipeService.swift in Sources */,
 				AECBCEB72465B4C400D501EE /* SearchViewModel.swift in Sources */,
+				AEC95317246866B20068B6EE /* MainTabbar.swift in Sources */,
 				AECBCEA524647BA700D501EE /* SearchCell.swift in Sources */,
 				AE360A6A246410CF00091C0E /* AppDelegate.swift in Sources */,
+				AE84C95E246D822E00F7166B /* UITextView+Extension.swift in Sources */,
+				AEFBBD7924670F7B00FF22C5 /* DetailView.swift in Sources */,
 				AE360A6C246410CF00091C0E /* SceneDelegate.swift in Sources */,
-				AEFBBD722467086C00FF22C5 /* MainTabBarController.swift in Sources */,
+				AE2630CD2469895E00DF1926 /* FavoriteController.swift in Sources */,
 				AECBCEBA2465B58200D501EE /* TableViewDataSource.swift in Sources */,
+				AE84C95C246D7EE200F7166B /* UILabel+Extension.swift in Sources */,
 				AECBCEA22464758600D501EE /* SearchController.swift in Sources */,
+				AEFBBD7724670CA300FF22C5 /* DetailController.swift in Sources */,
 				AECBCEB12465524500D501EE /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -502,7 +534,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = APS.RecipeSearchApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -521,7 +553,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = APS.RecipeSearchApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
