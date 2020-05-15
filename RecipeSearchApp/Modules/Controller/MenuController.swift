@@ -10,6 +10,7 @@ import UIKit
 
 private let cellId = "cellId"
 private let heightCell: CGFloat = 250
+private let headerHeight: CGFloat = 30
 
 class MenuController: UIViewController {
     
@@ -84,14 +85,17 @@ extension MenuController: UITableViewDelegate {
 
 extension MenuController: UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "LASTEST"
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = .white
+        let label = UILabel(text: "LASTEST", font: .systemFont(ofSize: 20, weight: .medium), textColor: .black)
+        view.addSubview(label)
+        label.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, paddingTop: 0, paddingLeft: 5, paddingBottom: 0, paddingRight: 0, width: 100)
+        return view
     }
     
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor = UIColor.clear
-        let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.textColor = UIColor.black
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return headerHeight
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

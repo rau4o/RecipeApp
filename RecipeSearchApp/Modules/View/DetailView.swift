@@ -73,6 +73,37 @@ class DetailView: UIView {
         return label
     }()
     
+    private let cardView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .red
+        return view
+    }()
+    
+    lazy private var mainStackView: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [categoryFoodLabel, titleFood, stackView, ingredientsLabel, descLinkLabel, cardView,testLabel,test1Label])
+        stack.spacing = 10
+        stack.distribution = .equalCentering
+        stack.axis = .vertical
+        return stack
+    }()
+    
+    lazy private var scrollView: UIScrollView = {
+        let scroll = UIScrollView()
+        scroll.backgroundColor = .clear
+        scroll.isScrollEnabled = true 
+        return scroll
+    }()
+    
+    private let testLabel: UILabel = {
+        let label = UILabel(text: "Hello world", font: .systemFont(ofSize: 18), numberOfLines: 0, textAlignment: .center)
+        return label
+    }()
+    
+    private let test1Label: UILabel = {
+        let label = UILabel(text: "Hello astana", font: .systemFont(ofSize: 18), numberOfLines: 0, textAlignment: .center)
+        return label
+    }()
+    
     // MARK: - Init
     
     override init(frame: CGRect) {
@@ -85,23 +116,33 @@ class DetailView: UIView {
     
     private func layoutUI() {
         
-        addSubviews([imageView,categoryFoodLabel,titleFood,stackView,ingredientsLabel,backButton,descLinkLabel,linkButton])
+//        addSubviews([imageView,categoryFoodLabel,titleFood,stackView,ingredientsLabel,backButton,descLinkLabel,linkButton])
+        addSubviews([imageView,backButton])
+        addSubview(scrollView)
+        scrollView.addSubview(mainStackView)
         
         imageView.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 200)
         
         backButton.anchor(top: imageView.topAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 50, paddingLeft: 5, paddingBottom: 0, paddingRight: 0, width: 100, height: 40)
         
-        categoryFoodLabel.anchor(top: imageView.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 16, paddingLeft: 16, paddingBottom: 0, paddingRight: 16, height: 24)
+        scrollView.anchor(top: imageView.bottomAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
         
-        titleFood.anchor(top: categoryFoodLabel.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 5, paddingLeft: 16, paddingBottom: 0, paddingRight: 16, height: 32)
+        mainStackView.anchor(top: scrollView.topAnchor, left: scrollView.leftAnchor, bottom: scrollView.bottomAnchor, right: scrollView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
         
-        stackView.anchor(top: titleFood.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 20, paddingLeft: 16, paddingBottom: 0, paddingRight: 16, height: 24)
+        mainStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+//
+//        categoryFoodLabel.anchor(top: imageView.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 16, paddingLeft: 16, paddingBottom: 0, paddingRight: 16, height: 24)
+//
+//        titleFood.anchor(top: categoryFoodLabel.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 5, paddingLeft: 16, paddingBottom: 0, paddingRight: 16, height: 32)
+//
+//        stackView.anchor(top: titleFood.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 20, paddingLeft: 16, paddingBottom: 0, paddingRight: 16, height: 24)
+//
+//        ingredientsLabel.anchor(top: stackView.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 25, paddingLeft: 16, paddingBottom: 0, paddingRight: 16, height: 24)
+//
+//        descLinkLabel.anchor(top: ingredientsLabel.bottomAnchor, left: leftAnchor, bottom: linkButton.topAnchor, right: rightAnchor, paddingTop: 10, paddingLeft: 16, paddingBottom: 10, paddingRight: 16)
+//
+//        linkButton.anchor(top: descLinkLabel.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 10, paddingLeft: 16, paddingBottom: 0, paddingRight: 16, height: 40)
         
-        ingredientsLabel.anchor(top: stackView.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 25, paddingLeft: 16, paddingBottom: 0, paddingRight: 16, height: 24)
-        
-        descLinkLabel.anchor(top: ingredientsLabel.bottomAnchor, left: leftAnchor, bottom: linkButton.topAnchor, right: rightAnchor, paddingTop: 10, paddingLeft: 16, paddingBottom: 10, paddingRight: 16)
-        
-        linkButton.anchor(top: descLinkLabel.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 10, paddingLeft: 16, paddingBottom: 0, paddingRight: 16, height: 40)
     }
     
     func configureUI(recipe: Recipe) {
@@ -111,6 +152,8 @@ class DetailView: UIView {
         labelOne.text = "Calories:\(Int(recipe.calories))"
         labelTwo.text = "Weight:\(Int(recipe.totalWeight))"
         labelThree.text = recipe.dietLabels.map({ ("\($0)")}).joined(separator: ",")
+        testLabel.text = recipe.healthLabels.map({ ("\($0)")}).joined(separator: "\n")
+        test1Label.text = recipe.healthLabels.map({ ("\($0)")}).joined(separator: "\n")
         linkButton.setTitle(recipe.shareAs, for: .normal)
     }
     
