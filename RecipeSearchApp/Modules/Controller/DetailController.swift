@@ -14,28 +14,25 @@ class DetailController: UIViewController {
     // MARK: - Properties
     
     var detailView = DetailView(frame: UIScreen.main.bounds)
-    
     static let shared = DetailController()
     
     private lazy var bottomSheetView: BottomSheetView = {
         let config = BottomSheetViewConfiguration(contentView: UIView(),
                                                   parentViewController: self,
-                                                  defaultPosition: .bottom(),
-                                                  positions: [.top(), .middle(), .bottom()],
+                                                  defaultPosition: .middle(),
+                                                  positions: [.top(), .middle()],
                                                   isSlidingToAppear: false,
                                                   isPullIndicatorNeeded: true,
-                                                  isCloseButtonNeeded: false,
+                                                  isCloseButtonNeeded: true,
                                                   isDismissAllowed: false)
         let view = BottomSheetView(configuration: config)
         view.delegate = self as? BottomSheetViewDelegate
-        
         return view
     }()
     
     lazy var additionalLabel: UITextView = {
         let text = UITextView(isEditable: false, font: .systemFont(ofSize: 15, weight: .medium))
         text.sizeToFit()
-        text.backgroundColor = .orange
         return text
     }()
     
@@ -49,9 +46,8 @@ class DetailController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         navigationController?.navigationBar.isHidden = true
-        layoutUI()
+        initialSetup()
         activateViewModel()
     }
     
@@ -63,7 +59,7 @@ class DetailController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        bottomSheetView.didSetupConstraints = true
+//        self.bottomSheetView.didSetupConstraints = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -78,6 +74,19 @@ class DetailController: UIViewController {
             guard let self = self else {return}
             self.navigationController?.popViewController(animated: true)
         }
+        
+//        detailView.showRecipeAction = { [weak self] in
+//            guard let self = self else { return }
+//            self.bottomSheetView.didSetupConstraints = true
+//        }
+    }
+}
+
+extension DetailController {
+    
+    func initialSetup() {
+        view.backgroundColor = .white
+        layoutUI()
     }
     
     private func layoutUI() {

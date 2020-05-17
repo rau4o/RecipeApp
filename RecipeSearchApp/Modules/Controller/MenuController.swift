@@ -9,15 +9,15 @@
 import UIKit
 
 private let cellId = "cellId"
-private let heightCell: CGFloat = 250
+private let heightCell: CGFloat = 180
 private let headerHeight: CGFloat = 30
+private let space: CGFloat = 10
 
 class MenuController: UIViewController {
     
     // MARK: - Properties
     
     var viewModel = SearchViewModel()
-    
     lazy var indicatorView = UIActivityIndicatorView()
     
     lazy var tableView: UITableView = {
@@ -34,10 +34,8 @@ class MenuController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        layoutUI()
+        initialSetup()
         fetchFood()
-        configureIndicatorView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,20 +52,6 @@ class MenuController: UIViewController {
             self.indicatorView.stopAnimating()
         }
     }
-    
-    private func configureIndicatorView() {
-        indicatorView.hidesWhenStopped = true
-        indicatorView.style = .large
-    }
-    
-    private func layoutUI() {
-        view.addSubviews([tableView, indicatorView])
-        
-        tableView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 5, paddingRight: 0)
-        indicatorView.centerX(inView: view)
-        indicatorView.centerY(inView: view)
-        indicatorView.setDimension(height: 100, width: 100)
-    }
 }
 
 // MARK: - UITableViewDelegate
@@ -78,6 +62,7 @@ extension MenuController: UITableViewDelegate {
         navigationController?.pushViewController(DetailController.shared, animated: true)
         DetailController.shared.detailView.configureUI(recipe: recipe)
         DetailController.shared.additionalLabel.text = recipe.ingredientLines.map({ ("● \($0)")}).joined(separator: "\n")
+        DetailController.shared.detailView.foodView.configureFoodView(recipe: recipe)
     }
 }
 
@@ -114,6 +99,32 @@ extension MenuController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return heightCell
+    }
+}
+
+// MARK: - Setup Views
+
+extension MenuController {
+    
+    func initialSetup() {
+        title = "Delicious"
+        view.backgroundColor = .white
+        layoutUI()
+        configureIndicatorView()
+    }
+    
+    private func layoutUI() {
+        view.addSubviews([tableView, indicatorView])
+        
+        tableView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 5, paddingRight: 0)
+        indicatorView.centerX(inView: view)
+        indicatorView.centerY(inView: view)
+        indicatorView.setDimension(height: 100, width: 100)
+    }
+    
+    private func configureIndicatorView() {
+        indicatorView.hidesWhenStopped = true
+        indicatorView.style = .large
     }
 }
 

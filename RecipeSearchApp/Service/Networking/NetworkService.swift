@@ -19,6 +19,7 @@ class NetworkService {
             case .success(let response):
                 do {
                     let recipe = try JSONDecoder().decode(Welcome.self, from: response.data)
+                    print(recipe.hits[0].recipe)
                     completion(recipe,nil)
                 } catch(let error) {
                     print("\(error.localizedDescription) hz")

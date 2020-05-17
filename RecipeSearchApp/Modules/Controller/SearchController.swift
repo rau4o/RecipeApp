@@ -26,7 +26,13 @@ class SearchController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
+        viewModel.delegate = self
         initialSetup()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -53,11 +59,9 @@ extension SearchController: SearchProtocol {
 extension SearchController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let query = searchBar.text else {return}
-        activityIndicatorView.startAnimating()
         viewModel.searchRecipe(with: query) { [weak self] in
             guard let self = self else {return}
             self.tableView.dataSource = self.viewModel.dataSource
-            self.activityIndicatorView.stopAnimating()
             self.tableView.reloadData()
         }
     }
@@ -109,13 +113,15 @@ private extension SearchController {
         tableView.showsVerticalScrollIndicator = false
         tableView.backgroundColor = .white
         tableView.separatorStyle = .none
+        tableView.tableFooterView = UIView()
     }
     
     func setupSearchController() {
-       searchController.obscuresBackgroundDuringPresentation = false
-       searchController.hidesNavigationBarDuringPresentation = false
-       searchController.searchBar.placeholder = "Search"
-       searchController.searchBar.delegate = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        searchController.searchBar.delegate = self
     }
     
     func setupViews() {

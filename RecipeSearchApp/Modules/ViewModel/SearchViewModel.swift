@@ -35,7 +35,6 @@ class SearchViewModel {
             self.recipeDidLoad(self.recipesData)
             self.delegate?.finishLoading()
             DispatchQueue.main.async {
-                self.delegate?.updateTableView()
                 completion()
             }
         }

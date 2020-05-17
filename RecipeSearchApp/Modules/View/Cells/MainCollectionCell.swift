@@ -20,23 +20,28 @@ class MainCollectionCell: UITableViewCell {
         return image
     }()
     
-    let categoryFoodLabel: UILabel = {
-        return UILabel(font: .systemFont(ofSize: 14, weight: .medium), textColor: #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1))
+    private let categoryFoodLabel: UILabel = {
+        let label = UILabel(font: .systemFont(ofSize: 20, weight: .medium), textColor: .white)
+        label.backgroundColor = .orange
+        return label
     }()
     
-    let titleFood: UILabel = {
-        return UILabel(font: .systemFont(ofSize: 16, weight: .light), numberOfLines: 0)
+    private let titleFood: UILabel = {
+        let label = UILabel(font: .systemFont(ofSize: 25, weight: .light), numberOfLines: 0, textColor: .white)
+        label.addShadowLabel()
+        label.sizeToFit()
+        return label
     }()
     
-    let labelOne: UILabel = {
+    private let labelOne: UILabel = {
         return UILabel(font: .systemFont(ofSize: 12, weight: .semibold), textColor: #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1))
     }()
     
-    let labelTwo: UILabel = {
+    private let labelTwo: UILabel = {
         return UILabel(font: .systemFont(ofSize: 12, weight: .semibold), textColor: #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1))
     }()
     
-    let labelThree: UILabel = {
+    private let labelThree: UILabel = {
         return UILabel(font: .systemFont(ofSize: 12, weight: .semibold), textColor: #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1))
     }()
     
@@ -73,14 +78,21 @@ class MainCollectionCell: UITableViewCell {
     }
     
     private func layoutUI() {
-        addSubviews([imageUrl,categoryFoodLabel,titleFood,stackView])
+        [imageUrl,categoryFoodLabel,titleFood].forEach {
+            addSubview($0)
+        }
         
-        imageUrl.anchor(top: topAnchor, left: leftAnchor, bottom: categoryFoodLabel.topAnchor, right: rightAnchor, paddingTop: 10, paddingLeft: 10, paddingBottom: 0, paddingRight: 10)
-        
-        categoryFoodLabel.anchor(top: imageUrl.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 10, paddingLeft: 16, paddingBottom: 0, paddingRight: 16, height: 24)
-        
-        titleFood.anchor(top: categoryFoodLabel.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 0, paddingLeft: 16, paddingBottom: 0, paddingRight: 16, height: 24)
-        
-        stackView.anchor(top: titleFood.bottomAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 5, paddingLeft: 16, paddingBottom: 10, paddingRight: 16, height: 24)
+        imageUrl.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview().inset(10)
+        }
+        categoryFoodLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(imageUrl.snp.top).inset(5)
+            make.left.equalTo(imageUrl.snp.left).inset(5)
+        }
+        titleFood.snp.makeConstraints { (make) in
+            make.bottom.equalTo(imageUrl.snp.bottom).inset(5)
+            make.left.equalTo(imageUrl.snp.left).inset(5)
+            make.right.equalTo(imageUrl.snp.right).inset(5)
+        }
     }
 }

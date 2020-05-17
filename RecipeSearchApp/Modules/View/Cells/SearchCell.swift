@@ -65,6 +65,8 @@ class SearchCell: UITableViewCell {
         layoutUI()
     }
     
+    // MARK: - Helper function
+    
     private func layoutUI() {
         addSubview(cardView)
         cardView.addSubview(imageUrl)
