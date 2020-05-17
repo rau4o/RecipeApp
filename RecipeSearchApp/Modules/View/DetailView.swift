@@ -11,7 +11,6 @@ import UIKit
 class DetailView: UIView {
     
     // MARK: - Properties
-    
     var dismissAction: (() -> Void)?
     var showRecipeAction: (() -> Void)?
     
@@ -92,20 +91,7 @@ class DetailView: UIView {
         infoView.snp.makeConstraints { (make) in
             make.top.equalTo(foodView.snp.bottom)
             make.left.bottom.right.equalToSuperview()
-            
         }
-        
-        
-        
-//        scrollView.anchor(top: imageView.bottomAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
-        
-//        categoryFoodLabel.centerX(inView: mainStackView)
-//        titleFood.centerX(inView: mainStackView)
-//        stackView.centerX(inView: mainStackView)
-//        ingredientsLabel.centerX(inView: mainStackView)
-//        descLinkLabel.centerX(inView: mainStackView)
-        
-//        mainStackView.anchor(top: scrollView.topAnchor, left: scrollView.leftAnchor, bottom: scrollView.bottomAnchor, right: scrollView.rightAnchor, paddingTop: 10, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
     }
     
     func configureUI(recipe: Recipe) {

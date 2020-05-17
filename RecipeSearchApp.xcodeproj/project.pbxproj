@@ -28,6 +28,8 @@
 		AE84C96D246DB2D700F7166B /* MyCustomTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE84C96C246DB2D600F7166B /* MyCustomTabBarViewModel.swift */; };
 		AEA08DCC24715CE300F13D33 /* FoodVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA08DCB24715CE300F13D33 /* FoodVIew.swift */; };
 		AEA08DCE24717F2A00F13D33 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA08DCD24717F2A00F13D33 /* InfoView.swift */; };
+		AEA08DD124718A3000F13D33 /* IngredientController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA08DD024718A3000F13D33 /* IngredientController.swift */; };
+		AEA08DD32471A7B300F13D33 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA08DD22471A7B300F13D33 /* FavoriteView.swift */; };
 		AECBCEA22464758600D501EE /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECBCEA12464758600D501EE /* SearchController.swift */; };
 		AECBCEA524647BA700D501EE /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECBCEA424647BA700D501EE /* SearchCell.swift */; };
 		AECBCEA724647D7200D501EE /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECBCEA624647D7200D501EE /* UIView+Extension.swift */; };
@@ -65,6 +67,8 @@
 		AE84C96C246DB2D600F7166B /* MyCustomTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomTabBarViewModel.swift; sourceTree = "<group>"; };
 		AEA08DCB24715CE300F13D33 /* FoodVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodVIew.swift; sourceTree = "<group>"; };
 		AEA08DCD24717F2A00F13D33 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		AEA08DD024718A3000F13D33 /* IngredientController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientController.swift; sourceTree = "<group>"; };
+		AEA08DD22471A7B300F13D33 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		AECBCEA12464758600D501EE /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		AECBCEA424647BA700D501EE /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		AECBCEA624647D7200D501EE /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -218,6 +222,7 @@
 				AEFBBD7824670F7B00FF22C5 /* DetailView.swift */,
 				AEA08DCB24715CE300F13D33 /* FoodVIew.swift */,
 				AEA08DCD24717F2A00F13D33 /* InfoView.swift */,
+				AEA08DD22471A7B300F13D33 /* FavoriteView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -246,6 +251,7 @@
 		AEA08DCF2471898400F13D33 /* ViewPagerController */ = {
 			isa = PBXGroup;
 			children = (
+				AEA08DD024718A3000F13D33 /* IngredientController.swift */,
 			);
 			path = ViewPagerController;
 			sourceTree = "<group>";
@@ -404,6 +410,7 @@
 				AEA08DCE24717F2A00F13D33 /* InfoView.swift in Sources */,
 				AE2630CB2469845200DF1926 /* MainCollectionCell.swift in Sources */,
 				AECBCEA924648AEC00D501EE /* RecipeNetworking.swift in Sources */,
+				AEA08DD124718A3000F13D33 /* IngredientController.swift in Sources */,
 				AE84C968246DB25900F7166B /* BEKCurveTabbar.swift in Sources */,
 				AE84C96D246DB2D700F7166B /* MyCustomTabBarViewModel.swift in Sources */,
 				AECBCEB72465B4C400D501EE /* SearchViewModel.swift in Sources */,
@@ -416,6 +423,7 @@
 				AE360A6C246410CF00091C0E /* SceneDelegate.swift in Sources */,
 				AE2630CD2469895E00DF1926 /* FavoriteController.swift in Sources */,
 				AE84C967246DB25900F7166B /* DefaultTabBarViewModel.swift in Sources */,
+				AEA08DD32471A7B300F13D33 /* FavoriteView.swift in Sources */,
 				AECBCEBA2465B58200D501EE /* TableViewDataSource.swift in Sources */,
 				AE84C95C246D7EE200F7166B /* UILabel+Extension.swift in Sources */,
 				AECBCEA22464758600D501EE /* SearchController.swift in Sources */,

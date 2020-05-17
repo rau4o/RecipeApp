@@ -13,6 +13,8 @@ class InfoView: UIView {
     
     // MARK: - Properties
     
+    let vc = IngredientController()
+    
     private let titleLabel: UILabel = {
         let label = UILabel(text: "Info", font: .systemFont(ofSize: 23, weight: .medium), textAlignment: .center)
         return label
@@ -60,16 +62,18 @@ class InfoView: UIView {
             make.height.equalTo(40)
         }
         viewPager.snp.makeConstraints { (make) in
-            make.top.equalTo(navigationBar.snp.bottom).inset(16)
+            make.top.equalTo(navigationBar.snp.bottom).offset(16)
             make.left.right.equalToSuperview().inset(16)
-            make.bottom.equalToSuperview()
+            make.bottom.equalToSuperview().inset(16)
         }
     }
     
     func configureInfo(recipe: Recipe) {
-        
+        vc.configureTextView(recipe: recipe)
     }
 }
+
+// MARK: - BmoViewPagerDelegate, BmoViewPagerDataSource
 
 
 extension InfoView: BmoViewPagerDelegate, BmoViewPagerDataSource {
@@ -98,13 +102,12 @@ extension InfoView: BmoViewPagerDelegate, BmoViewPagerDataSource {
                 break
         }
         return ""
-//        return page == 0 ? "First" : "Second"
     }
     
     func bmoViewPagerDataSource(_ viewPager: BmoViewPager, viewControllerForPageAt page: Int) -> UIViewController {
         switch page {
         case 0:
-            let vc = UIViewController()
+            let vc = IngredientController()
             return vc
         case 1:
             let vc2 = UIViewController()
@@ -124,6 +127,4 @@ extension InfoView: BmoViewPagerDelegate, BmoViewPagerDataSource {
     func bmoViewPagerDataSourceNaviagtionBarItemSize(_ viewPager: BmoViewPager, navigationBar: BmoViewPagerNavigationBar, forPageListAt page: Int) -> CGSize {
         return CGSize(width: navigationBar.bounds.width / 3, height: navigationBar.bounds.height)
     }
-    
-    
 }

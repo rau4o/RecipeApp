@@ -16,6 +16,7 @@ private let space: CGFloat = 10
 class MenuController: UIViewController {
     
     // MARK: - Properties
+    weak var delegate: PassData? = nil
     
     var viewModel = SearchViewModel()
     lazy var indicatorView = UIActivityIndicatorView()
@@ -61,8 +62,8 @@ extension MenuController: UITableViewDelegate {
         let recipe = viewModel.getElements(at: indexPath.row)
         navigationController?.pushViewController(DetailController.shared, animated: true)
         DetailController.shared.detailView.configureUI(recipe: recipe)
-        DetailController.shared.additionalLabel.text = recipe.ingredientLines.map({ ("● \($0)")}).joined(separator: "\n")
         DetailController.shared.detailView.foodView.configureFoodView(recipe: recipe)
+        delegate?.pass(recipe: recipe)
     }
 }
 
