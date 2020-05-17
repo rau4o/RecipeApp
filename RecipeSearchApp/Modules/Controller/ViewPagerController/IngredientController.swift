@@ -12,44 +12,45 @@ protocol PassData: class {
     func pass(recipe: Recipe)
 }
 
-extension IngredientController: PassData {
-    func pass(recipe: Recipe) {
-        ingredientTextView.text = recipe.ingredientLines.map({"● \($0)"}).joined(separator: "\n")
-    }
-}
-
 class IngredientController: UIViewController {
+//    func pass(recipe: Recipe) {
+//        iView.ingredientTextView.text = recipe.ingredientLines.map({"● \($0)"}).joined(separator: "\n")
+//    }
+    
     
     // MARK: - Properties
-    let menuVC = MenuController()
     
-    let ingredientTextView: UITextView = {
-        let text = UITextView(isEditable: false, font: .systemFont(ofSize: 20, weight: .medium))
-        text.sizeToFit()
-        text.textColor = .black
-        return text
-    }()
+    let iView = IngredientView()
+    
+//    let ingredientTextView: UITextView = {
+//        let text = UITextView(isEditable: false, font: .systemFont(ofSize: 20, weight: .medium))
+//        text.sizeToFit()
+//        text.textColor = .black
+//        return text
+//    }()
 
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red
-        menuVC.delegate = self
         layoutUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
     }
     
     // MARK: - Helper function
     
     private func layoutUI() {
-        view.addSubview(ingredientTextView)
+        view.addSubview(iView)
         
-        ingredientTextView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview().inset(10)
+        iView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
         }
     }
     
-    func configureTextView(recipe: Recipe) {
-        ingredientTextView.text = recipe.ingredientLines.map({"● \($0)"}).joined(separator: "\n")
-    }
+//    func configureTextView(recipe: Recipe) {
+//        ingredientTextView.text = recipe.ingredientLines.map({"● \($0)"}).joined(separator: "\n")
+//    }
 }

@@ -7,22 +7,14 @@
 //
 
 import UIKit
+import BmoViewPager
 
 class DetailView: UIView {
     
     // MARK: - Properties
+
     var dismissAction: (() -> Void)?
     var showRecipeAction: (() -> Void)?
-    
-    var foodView: FoodVIew = {
-        let view = FoodVIew()
-        return view
-    }()
-    
-    var infoView: InfoView = {
-        let view = InfoView()
-        return view
-    }()
     
     let imageView: UIImageView = {
         let image = UIImageView()
@@ -38,37 +30,60 @@ class DetailView: UIView {
         return button
     }()
     
-    private let descLinkLabel: UILabel = {
-        let label = UILabel(text: "Full Recipe in link or just swipe:", font: .systemFont(ofSize: 16, weight: .medium), numberOfLines: 0, textAlignment: .center)
-        label.sizeToFit()
+    private let categoryFoodLabel: UILabel = {
+        return UILabel(font: .systemFont(ofSize: 18, weight: .medium), textAlignment: .center, textColor: #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1))
+    }()
+
+    private let titleFood: UILabel = {
+        let label = UILabel(font: .systemFont(ofSize: 25, weight: .light), numberOfLines: 0, textAlignment: .center)
         return label
     }()
     
-//    lazy private var mainStackView: UIStackView = {
-//        let stack = UIStackView(arrangedSubviews: [categoryFoodLabel, titleFood, stackView, ingredientsLabel, descLinkLabel])
-//        stack.distribution = .fill
-//        stack.axis = .vertical
-//        stack.spacing = 10
-//        stack.alignment = .center
-////        stack.setCustomSpacing(15, after: categoryFoodLabel)
-////        stack.setCustomSpacing(20, after: titleFood)
-////        stack.setCustomSpacing(20, after: stackView)
-////        stack.setCustomSpacing(0, after: ingredientsLabel)
-//        return stack
-//    }()
+    private let labelOne: UILabel = {
+        return UILabel(font: .systemFont(ofSize: 14, weight: .semibold), textAlignment: .center, textColor: #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1))
+    }()
     
-    lazy private var scrollView: UIScrollView = {
-        let scroll = UIScrollView()
-        scroll.backgroundColor = .clear
-        scroll.isScrollEnabled = false
-        return scroll
+    private let labelTwo: UILabel = {
+        return UILabel(font: .systemFont(ofSize: 14, weight: .semibold), textAlignment: .center, textColor: #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1))
+    }()
+    
+    private let labelThree: UILabel = {
+        return UILabel(font: .systemFont(ofSize: 14, weight: .semibold), textAlignment: .center, textColor: #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1))
+    }()
+    
+    lazy private var stackView: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [labelOne,labelTwo,labelThree])
+        stack.axis = .horizontal
+        stack.distribution = .fillEqually
+        stack.spacing = 5
+        return stack
+    }()
+    
+    private let infoLabel: UILabel = {
+        let label = UILabel(text: "Information", font: .systemFont(ofSize: 23, weight: .medium), textAlignment: .center)
+        return label
+    }()
+    
+    lazy private var viewPager: BmoViewPager = {
+        let view = BmoViewPager()
+        view.scrollable = true
+        view.delegate = self
+        view.dataSource = self
+        return view
+    }()
+    
+    lazy private var navigationBar: BmoViewPagerNavigationBar = {
+        let view = BmoViewPagerNavigationBar()
+        view.autoFocus = false
+        return view
     }()
     
     // MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .red
+        backgroundColor = .white
+        navigationBar.viewPager = viewPager
         layoutUI()
     }
     
@@ -76,26 +91,64 @@ class DetailView: UIView {
     
     private func layoutUI() {
         
-        addSubviews([imageView,backButton,foodView,infoView])
+        addSubviews([imageView, backButton, categoryFoodLabel, titleFood, stackView, infoLabel, navigationBar, viewPager])
         
-        imageView.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 200)
-        
-        backButton.anchor(top: imageView.topAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 50, paddingLeft: 5, paddingBottom: 0, paddingRight: 0, width: 100, height: 40)
-        
-        foodView.snp.makeConstraints { (make) in
-            make.top.equalTo(imageView.snp.bottom)
-            make.left.right.equalToSuperview()
-            make.height.equalTo(150)
+        imageView.snp.makeConstraints { (make) in
+            make.top.left.right.equalToSuperview()
+            make.height.equalTo(200)
         }
         
-        infoView.snp.makeConstraints { (make) in
-            make.top.equalTo(foodView.snp.bottom)
-            make.left.bottom.right.equalToSuperview()
+        backButton.snp.makeConstraints { (make) in
+            make.top.equalTo(imageView.snp.top).inset(30)
+            make.left.equalTo(imageView.snp.left).inset(5)
+            make.width.equalTo(100)
+            make.height.equalTo(40)
+        }
+        
+        categoryFoodLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(imageView.snp.bottom).offset(16)
+            make.left.right.equalToSuperview().inset(16)
+            make.height.equalTo(20)
+        }
+        
+        titleFood.snp.makeConstraints { (make) in
+            make.top.equalTo(categoryFoodLabel.snp.bottom).offset(10)
+            make.left.right.equalToSuperview().inset(16)
+            make.height.equalTo(25)
+        }
+        
+        stackView.snp.makeConstraints { (make) in
+            make.top.equalTo(titleFood.snp.bottom).offset(16)
+            make.left.right.equalToSuperview().inset(10)
+            make.height.equalTo(30)
+        }
+        
+        infoLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(stackView.snp.bottom).offset(10)
+            make.left.right.equalToSuperview().inset(10)
+            make.height.equalTo(35)
+        }
+        
+        navigationBar.snp.makeConstraints { (make) in
+            make.top.equalTo(infoLabel.snp.bottom).offset(10)
+            make.left.right.equalToSuperview().inset(10)
+            make.height.equalTo(30)
+        }
+        
+        viewPager.snp.makeConstraints { (make) in
+            make.top.equalTo(navigationBar.snp.bottom).offset(16)
+            make.left.right.equalToSuperview().inset(16)
+            make.height.equalTo(300)
         }
     }
     
     func configureUI(recipe: Recipe) {
         imageView.kf.setImage(with: URL(string: recipe.image))
+        categoryFoodLabel.text = recipe.source
+        titleFood.text = recipe.label
+        labelOne.text = "Calories:\(Int(recipe.calories))"
+        labelTwo.text = "Weight:\(Int(recipe.totalWeight))"
+        labelThree.text = "Yield:\(recipe.yield)"
     }
     
     // MARK: - Selectors
@@ -110,5 +163,60 @@ class DetailView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: - BmoViewPagerDelegate, BmoViewPagerDataSource
+
+extension DetailView: BmoViewPagerDelegate, BmoViewPagerDataSource {
+    
+    func bmoViewPagerDataSourceNaviagtionBarItemNormalAttributed(_ viewPager: BmoViewPager, navigationBar: BmoViewPagerNavigationBar, forPageListAt page: Int) -> [NSAttributedString.Key : Any]? {
+        return [
+            NSAttributedString.Key.strokeWidth     : 1.0,
+            NSAttributedString.Key.strokeColor     : UIColor.black,
+            NSAttributedString.Key.foregroundColor : UIColor.groupTableViewBackground
+        ]
+    }
+    
+    func bmoViewPagerDataSourceNumberOfPage(in viewPager: BmoViewPager) -> Int {
+        return 3
+    }
+    
+    func bmoViewPagerDataSourceNaviagtionBarItemTitle(_ viewPager: BmoViewPager, navigationBar: BmoViewPagerNavigationBar, forPageListAt page: Int) -> String? {
+        switch page {
+            case 0:
+                return "Ingredients"
+            case 1:
+                return "Diet"
+            case 2:
+                return "Health"
+            default:
+                break
+        }
+        return ""
+    }
+    
+    func bmoViewPagerDataSource(_ viewPager: BmoViewPager, viewControllerForPageAt page: Int) -> UIViewController {
+        switch page {
+        case 0:
+            let vc = IngredientController()
+            return vc
+        case 1:
+            let vc2 = UIViewController()
+            return vc2
+        case 2:
+            return UIViewController()
+        default:
+            break
+        }
+        return UIViewController()
+    }
+    
+    func bmoViewPagerDataSourceNaviagtionBarItemHighlightedAttributed(_ viewPager: BmoViewPager, navigationBar: BmoViewPagerNavigationBar, forPageListAt page: Int) -> [NSAttributedString.Key : Any]? {
+        return [NSAttributedString.Key.foregroundColor: UIColor.black]
+    }
+    
+    func bmoViewPagerDataSourceNaviagtionBarItemSize(_ viewPager: BmoViewPager, navigationBar: BmoViewPagerNavigationBar, forPageListAt page: Int) -> CGSize {
+        return CGSize(width: navigationBar.bounds.width / 3, height: navigationBar.bounds.height)
     }
 }

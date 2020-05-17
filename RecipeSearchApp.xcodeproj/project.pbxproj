@@ -17,6 +17,7 @@
 		AE360A71246410CF00091C0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE360A6F246410CF00091C0E /* Main.storyboard */; };
 		AE360A73246410D000091C0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE360A72246410D000091C0E /* Assets.xcassets */; };
 		AE360A76246410D000091C0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE360A74246410D000091C0E /* LaunchScreen.storyboard */; };
+		AE7524AE2471C5600001E717 /* IngredientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7524AD2471C5600001E717 /* IngredientView.swift */; };
 		AE84C95C246D7EE200F7166B /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE84C95B246D7EE200F7166B /* UILabel+Extension.swift */; };
 		AE84C95E246D822E00F7166B /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE84C95D246D822E00F7166B /* UITextView+Extension.swift */; };
 		AE84C966246DB25900F7166B /* BEKCurveTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE84C960246DB25900F7166B /* BEKCurveTabbarController.swift */; };
@@ -26,8 +27,6 @@
 		AE84C96A246DB25900F7166B /* TabbarHeightRatios.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE84C964246DB25900F7166B /* TabbarHeightRatios.swift */; };
 		AE84C96B246DB25900F7166B /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE84C965246DB25900F7166B /* Storyboard.storyboard */; };
 		AE84C96D246DB2D700F7166B /* MyCustomTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE84C96C246DB2D600F7166B /* MyCustomTabBarViewModel.swift */; };
-		AEA08DCC24715CE300F13D33 /* FoodVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA08DCB24715CE300F13D33 /* FoodVIew.swift */; };
-		AEA08DCE24717F2A00F13D33 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA08DCD24717F2A00F13D33 /* InfoView.swift */; };
 		AEA08DD124718A3000F13D33 /* IngredientController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA08DD024718A3000F13D33 /* IngredientController.swift */; };
 		AEA08DD32471A7B300F13D33 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA08DD22471A7B300F13D33 /* FavoriteView.swift */; };
 		AECBCEA22464758600D501EE /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECBCEA12464758600D501EE /* SearchController.swift */; };
@@ -56,6 +55,7 @@
 		AE360A72246410D000091C0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE360A75246410D000091C0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE360A77246410D000091C0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE7524AD2471C5600001E717 /* IngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientView.swift; sourceTree = "<group>"; };
 		AE84C95B246D7EE200F7166B /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		AE84C95D246D822E00F7166B /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		AE84C960246DB25900F7166B /* BEKCurveTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BEKCurveTabbarController.swift; sourceTree = "<group>"; };
@@ -65,8 +65,6 @@
 		AE84C964246DB25900F7166B /* TabbarHeightRatios.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarHeightRatios.swift; sourceTree = "<group>"; };
 		AE84C965246DB25900F7166B /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		AE84C96C246DB2D600F7166B /* MyCustomTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomTabBarViewModel.swift; sourceTree = "<group>"; };
-		AEA08DCB24715CE300F13D33 /* FoodVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodVIew.swift; sourceTree = "<group>"; };
-		AEA08DCD24717F2A00F13D33 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		AEA08DD024718A3000F13D33 /* IngredientController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientController.swift; sourceTree = "<group>"; };
 		AEA08DD22471A7B300F13D33 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		AECBCEA12464758600D501EE /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
@@ -220,9 +218,8 @@
 			children = (
 				AECBCEA324647B7A00D501EE /* Cells */,
 				AEFBBD7824670F7B00FF22C5 /* DetailView.swift */,
-				AEA08DCB24715CE300F13D33 /* FoodVIew.swift */,
-				AEA08DCD24717F2A00F13D33 /* InfoView.swift */,
 				AEA08DD22471A7B300F13D33 /* FavoriteView.swift */,
+				AE7524AD2471C5600001E717 /* IngredientView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -407,16 +404,15 @@
 				AE2630CF246AA95100DF1926 /* MenuViewModel.swift in Sources */,
 				AE84C966246DB25900F7166B /* BEKCurveTabbarController.swift in Sources */,
 				AECBCEAB24648E4C00D501EE /* NetworkProperties.swift in Sources */,
-				AEA08DCE24717F2A00F13D33 /* InfoView.swift in Sources */,
 				AE2630CB2469845200DF1926 /* MainCollectionCell.swift in Sources */,
 				AECBCEA924648AEC00D501EE /* RecipeNetworking.swift in Sources */,
 				AEA08DD124718A3000F13D33 /* IngredientController.swift in Sources */,
 				AE84C968246DB25900F7166B /* BEKCurveTabbar.swift in Sources */,
+				AE7524AE2471C5600001E717 /* IngredientView.swift in Sources */,
 				AE84C96D246DB2D700F7166B /* MyCustomTabBarViewModel.swift in Sources */,
 				AECBCEB72465B4C400D501EE /* SearchViewModel.swift in Sources */,
 				AECBCEA524647BA700D501EE /* SearchCell.swift in Sources */,
 				AE84C96A246DB25900F7166B /* TabbarHeightRatios.swift in Sources */,
-				AEA08DCC24715CE300F13D33 /* FoodVIew.swift in Sources */,
 				AE360A6A246410CF00091C0E /* AppDelegate.swift in Sources */,
 				AE84C95E246D822E00F7166B /* UITextView+Extension.swift in Sources */,
 				AEFBBD7924670F7B00FF22C5 /* DetailView.swift in Sources */,

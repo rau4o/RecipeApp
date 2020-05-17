@@ -13,34 +13,11 @@ class DetailController: UIViewController {
     
     // MARK: - Properties
     
+    var recipe: Recipe?
+    
     var detailView = DetailView(frame: UIScreen.main.bounds)
+    var scrollView = UIScrollView()
     static let shared = DetailController()
-    
-    private lazy var bottomSheetView: BottomSheetView = {
-        let config = BottomSheetViewConfiguration(contentView: UIView(),
-                                                  parentViewController: self,
-                                                  defaultPosition: .middle(),
-                                                  positions: [.top(), .middle()],
-                                                  isSlidingToAppear: false,
-                                                  isPullIndicatorNeeded: true,
-                                                  isCloseButtonNeeded: true,
-                                                  isDismissAllowed: false)
-        let view = BottomSheetView(configuration: config)
-        view.delegate = self as? BottomSheetViewDelegate
-        return view
-    }()
-    
-    lazy var additionalLabel: UITextView = {
-        let text = UITextView(isEditable: false, font: .systemFont(ofSize: 15, weight: .medium))
-        text.sizeToFit()
-        return text
-    }()
-    
-    private let upImage: UIImageView = {
-        let image = UIImageView()
-        image.image = UIImage(named: "up")
-        return image
-    }()
 
     // MARK: - Life Cycle
     
@@ -59,7 +36,6 @@ class DetailController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        self.bottomSheetView.didSetupConstraints = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -74,11 +50,6 @@ class DetailController: UIViewController {
             guard let self = self else {return}
             self.navigationController?.popViewController(animated: true)
         }
-        
-//        detailView.showRecipeAction = { [weak self] in
-//            guard let self = self else { return }
-//            self.bottomSheetView.didSetupConstraints = true
-//        }
     }
 }
 
@@ -90,21 +61,20 @@ extension DetailController {
     }
     
     private func layoutUI() {
-        view.addSubview(detailView)
-        view.addSubview(bottomSheetView)
-        bottomSheetView.addSubview(additionalLabel)
-        bottomSheetView.addSubview(upImage)
+        view.addSubview(scrollView)
+        scrollView.addSubview(detailView)
         
-        bottomSheetView.snp.makeConstraints { make in
-            make.left.right.bottom.equalToSuperview()
-            make.height.equalTo(0)
+        scrollView.snp.makeConstraints { (make) in
+            make.center.equalTo(self.view.snp.center)
+            make.width.equalTo(self.view.snp.width)
+            make.top.equalTo(self.view.snp.top)
+            make.bottom.equalTo(self.view.snp.bottom)
         }
-        
-        detailView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
-        
-        upImage.anchor(top: bottomSheetView.topAnchor, left: nil, bottom: nil, right: nil, paddingTop: 10, paddingLeft: 0, paddingBottom: 10, paddingRight: 0, width: 50, height: 40)
-        upImage.centerX(inView: bottomSheetView)
-        
-        additionalLabel.anchor(top: upImage.bottomAnchor, left: bottomSheetView.leftAnchor, bottom: bottomSheetView.bottomAnchor, right: bottomSheetView.rightAnchor, paddingTop: 40, paddingLeft: 10, paddingBottom: 10, paddingRight: 10)
+        detailView.snp.makeConstraints { (make) in
+            make.center.equalTo(self.scrollView.snp.center)
+            make.width.equalTo(self.scrollView.snp.width)
+            make.top.equalTo(self.scrollView.snp.top)
+            make.bottom.equalTo(self.scrollView.snp.bottom)
+        }
     }
 }

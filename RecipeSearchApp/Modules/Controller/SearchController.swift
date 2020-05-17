@@ -77,7 +77,7 @@ extension SearchController: UITableViewDelegate {
         let recipe = viewModel.getElements(at: indexPath.row)
         navigationController?.pushViewController(DetailController.shared, animated: true)
         DetailController.shared.detailView.configureUI(recipe: recipe)
-        DetailController.shared.additionalLabel.text = recipe.ingredientLines.map({ ("● \($0)")}).joined(separator: "\n")
+//        DetailController.shared.additionalLabel.text = recipe.ingredientLines.map({ ("● \($0)")}).joined(separator: "\n")
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
