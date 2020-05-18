@@ -28,11 +28,7 @@ class MainCollectionCell: UITableViewCell {
     
     private let titleFood: UILabel = {
         let label = UILabel(font: .systemFont(ofSize: 25, weight: .bold), numberOfLines: 0, textColor: .white)
-//        label.addShadowLabel()
-        label.layer.shadowColor = UIColor.black.cgColor
-        label.layer.shadowOpacity = 0.55
-        label.layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
-        label.layer.masksToBounds = false
+        label.addShadowLabel()
         label.sizeToFit()
         return label
     }()

@@ -46,7 +46,7 @@ final class TableViewDataSource<Model,Cell: UITableViewCell>: NSObject, UITableV
 extension TableViewDataSource where Model == Recipe {
     static func make(for recipe: [Recipe], reuseIdentifier: String) -> TableViewDataSource {
         return TableViewDataSource(models: recipe, reuseIdentifier: reuseIdentifier) { (recipe, cell) in
-            if let cell = cell as? SearchCell {
+            if let cell = cell as? MainCollectionCell {
                 cell.configureCell(recipe: recipe)
             }
         }

@@ -40,5 +40,4 @@ class DietController: UIViewController {
             make.edges.equalToSuperview()
         }
     }
-
 }

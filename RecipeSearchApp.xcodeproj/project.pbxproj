@@ -32,7 +32,6 @@
 		AEA08DD124718A3000F13D33 /* IngredientController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA08DD024718A3000F13D33 /* IngredientController.swift */; };
 		AEA08DD32471A7B300F13D33 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA08DD22471A7B300F13D33 /* FavoriteView.swift */; };
 		AECBCEA22464758600D501EE /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECBCEA12464758600D501EE /* SearchController.swift */; };
-		AECBCEA524647BA700D501EE /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECBCEA424647BA700D501EE /* SearchCell.swift */; };
 		AECBCEA724647D7200D501EE /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECBCEA624647D7200D501EE /* UIView+Extension.swift */; };
 		AECBCEA924648AEC00D501EE /* RecipeNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECBCEA824648AEC00D501EE /* RecipeNetworking.swift */; };
 		AECBCEAB24648E4C00D501EE /* NetworkProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECBCEAA24648E4C00D501EE /* NetworkProperties.swift */; };
@@ -72,7 +71,6 @@
 		AEA08DD024718A3000F13D33 /* IngredientController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientController.swift; sourceTree = "<group>"; };
 		AEA08DD22471A7B300F13D33 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		AECBCEA12464758600D501EE /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
-		AECBCEA424647BA700D501EE /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		AECBCEA624647D7200D501EE /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		AECBCEA824648AEC00D501EE /* RecipeNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeNetworking.swift; sourceTree = "<group>"; };
 		AECBCEAA24648E4C00D501EE /* NetworkProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProperties.swift; sourceTree = "<group>"; };
@@ -262,7 +260,6 @@
 		AECBCEA324647B7A00D501EE /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				AECBCEA424647BA700D501EE /* SearchCell.swift */,
 				AE2630CA2469845200DF1926 /* MainCollectionCell.swift */,
 			);
 			path = Cells;
@@ -418,7 +415,6 @@
 				AE84C968246DB25900F7166B /* BEKCurveTabbar.swift in Sources */,
 				AE84C96D246DB2D700F7166B /* MyCustomTabBarViewModel.swift in Sources */,
 				AECBCEB72465B4C400D501EE /* SearchViewModel.swift in Sources */,
-				AECBCEA524647BA700D501EE /* SearchCell.swift in Sources */,
 				AE84C96A246DB25900F7166B /* TabbarHeightRatios.swift in Sources */,
 				AE360A6A246410CF00091C0E /* AppDelegate.swift in Sources */,
 				AE84C95E246D822E00F7166B /* UITextView+Extension.swift in Sources */,

@@ -18,7 +18,7 @@ class SearchViewModel {
     
     var recipesData: [Recipe] = []
     weak var delegate: SearchProtocol?
-    var dataSource: TableViewDataSource<Recipe, SearchCell>?
+    var dataSource: TableViewDataSource<Recipe, MainCollectionCell>?
     
     func searchRecipe(with query: String,completion: @escaping () -> Void) {
         delegate?.startLoading()

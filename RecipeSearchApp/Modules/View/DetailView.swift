@@ -39,6 +39,7 @@ class DetailView: UIView {
 
     private let titleFood: UILabel = {
         let label = UILabel(font: .systemFont(ofSize: 25, weight: .bold), numberOfLines: 0, textAlignment: .center, textColor: .white)
+        label.minimumScaleFactor = 0.8
         label.backgroundColor = UIColor.lightBlue
         return label
     }()
@@ -127,7 +128,7 @@ class DetailView: UIView {
         titleFood.snp.makeConstraints { (make) in
             make.top.equalTo(categoryFoodLabel.snp.bottom).offset(10)
             make.left.right.equalToSuperview().inset(16)
-            make.height.equalTo(25)
+            make.height.equalTo(27)
         }
         
         stackView.snp.makeConstraints { (make) in

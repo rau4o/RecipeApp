@@ -19,11 +19,9 @@ extension UILabel {
     }
     
     func addShadowLabel() {
-        minimumScaleFactor = 0.8
         layer.shadowColor = UIColor.black.cgColor
-        layer.shadowRadius = 3.0
-        layer.shadowOpacity = 1.0
-        layer.shadowOffset = CGSize(width: 4, height: 4)
+        layer.shadowOpacity = 0.55
+        layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
         layer.masksToBounds = false
     }
 }

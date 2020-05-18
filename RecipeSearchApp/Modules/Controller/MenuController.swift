@@ -45,6 +45,11 @@ class MenuController: UIViewController {
         navigationController?.navigationBar.isHidden = false
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.tabBarController?.tabBar.layer.zPosition = 0
+    }
+    
     // MARK: - Helper function
     
     private func fetchFood() {
@@ -77,7 +82,11 @@ extension MenuController: UITableViewDataSource {
         view.backgroundColor = UIColor.lightBlue
         let label = UILabel(text: "LASTEST", font: .systemFont(ofSize: 20, weight: .medium), textColor: .white)
         view.addSubview(label)
-        label.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, paddingTop: 0, paddingLeft: 5, paddingBottom: 0, paddingRight: 0, width: 100)
+        label.snp.makeConstraints { (make) in
+            make.top.left.equalTo(view).inset(5)
+            make.bottom.equalTo(view)
+            make.width.equalTo(100)
+        }
         return view
     }
     

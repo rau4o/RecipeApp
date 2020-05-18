@@ -10,7 +10,7 @@ import UIKit
 import Kingfisher
 
 private let cellId = "cellId"
-private let cellHeight: CGFloat = 150
+private let cellHeight: CGFloat = 180
 
 class SearchController: UIViewController {
     
@@ -58,6 +58,7 @@ extension SearchController: SearchProtocol {
 
 extension SearchController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.tintColor = .white
         guard let query = searchBar.text else {return}
         viewModel.searchRecipe(with: query) { [weak self] in
             guard let self = self else {return}
@@ -77,6 +78,7 @@ extension SearchController: UITableViewDelegate {
         let recipe = viewModel.getElements(at: indexPath.row)
         navigationController?.pushViewController(DetailController.shared, animated: true)
         DetailController.shared.detailView.configureUI(recipe: recipe)
+        DetailController.shared.detailView.recipe = recipe
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -87,7 +89,7 @@ extension SearchController: UITableViewDelegate {
 private extension SearchController {
     
     func initialSetup() {
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.lightBlue
         setupNavigationBar()
         setupViews()
         setupTableView()
@@ -106,14 +108,15 @@ private extension SearchController {
         navigationController?.navigationBar.barTintColor = UIColor.darkBlue
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): UIColor.white]
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
     func setupTableView() {
-        tableView.register(SearchCell.self, forCellReuseIdentifier: cellId)
+        tableView.register(MainCollectionCell.self, forCellReuseIdentifier: cellId)
         tableView.delegate = self
         tableView.dataSource = viewModel.dataSource
         tableView.showsVerticalScrollIndicator = false
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = UIColor.lightBlue
         tableView.separatorStyle = .none
         tableView.tableFooterView = UIView()
     }

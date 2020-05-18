@@ -7,17 +7,21 @@
 //
 
 import UIKit
-import AnchoredBottomSheet
+import SnapKit
 
 class DetailController: UIViewController {
     
     // MARK: - Properties
     
     var detailView = DetailView(frame: UIScreen.main.bounds)
-    var scrollView = UIScrollView()
     static let shared = DetailController()
-//    let vc = IngredientController()
-
+    
+    lazy var scrollView: UIScrollView = {
+        let scroll = UIScrollView()
+        scroll.isPagingEnabled = false
+        return scroll
+    }()
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -31,7 +35,7 @@ class DetailController: UIViewController {
         super.viewDidAppear(animated)
         navigationController?.navigationBar.isHidden = true
         tabBarController?.tabBar.isHidden = true
-        
+        self.tabBarController?.tabBar.layer.zPosition = -1
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,16 +69,16 @@ extension DetailController {
         scrollView.addSubview(detailView)
         
         scrollView.snp.makeConstraints { (make) in
-            make.center.equalTo(self.view.snp.center)
-            make.width.equalTo(self.view.snp.width)
-            make.top.equalTo(self.view.snp.top)
-            make.bottom.equalTo(self.view.snp.bottom)
+            make.center.equalTo(view.snp.center)
+            make.width.equalTo(view.snp.width)
+            make.top.equalTo(view.snp.top)
+            make.bottom.equalTo(view.snp.bottom)
         }
         detailView.snp.makeConstraints { (make) in
-            make.center.equalTo(self.scrollView.snp.center)
-            make.width.equalTo(self.scrollView.snp.width)
-            make.top.equalTo(self.scrollView.snp.top)
-            make.bottom.equalTo(self.scrollView.snp.bottom)
+            make.center.equalTo(scrollView.snp.center)
+            make.width.equalTo(scrollView.snp.width)
+            make.top.equalTo(scrollView.snp.top)
+            make.bottom.equalTo(scrollView.snp.bottom).offset(-150)
         }
     }
 }
