@@ -19,7 +19,6 @@ class MenuController: UIViewController {
     
     var viewModel = SearchViewModel()
     lazy var indicatorView = UIActivityIndicatorView()
-    let vc = IngredientController()
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -28,6 +27,7 @@ class MenuController: UIViewController {
         tableView.showsVerticalScrollIndicator = false
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundColor = UIColor.lightBlue
         return tableView
     }()
     
@@ -35,12 +35,14 @@ class MenuController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = true
         initialSetup()
         fetchFood()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
     }
     
     // MARK: - Helper function
@@ -62,8 +64,7 @@ extension MenuController: UITableViewDelegate {
         let recipe = viewModel.getElements(at: indexPath.row)
         navigationController?.pushViewController(DetailController.shared, animated: true)
         DetailController.shared.detailView.configureUI(recipe: recipe)
-        DetailController.shared.recipe = recipe
-        vc.iView.ingredientTextView.text = recipe.label
+        DetailController.shared.detailView.recipe = recipe
     }
 }
 
@@ -73,8 +74,8 @@ extension MenuController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
-        view.backgroundColor = .white
-        let label = UILabel(text: "LASTEST", font: .systemFont(ofSize: 20, weight: .medium), textColor: .black)
+        view.backgroundColor = UIColor.lightBlue
+        let label = UILabel(text: "LASTEST", font: .systemFont(ofSize: 20, weight: .medium), textColor: .white)
         view.addSubview(label)
         label.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, paddingTop: 0, paddingLeft: 5, paddingBottom: 0, paddingRight: 0, width: 100)
         return view
@@ -108,10 +109,18 @@ extension MenuController: UITableViewDataSource {
 extension MenuController {
     
     func initialSetup() {
-        title = "Delicious"
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.lightBlue
         layoutUI()
         configureIndicatorView()
+        setupNavBar()
+    }
+    
+    private func setupNavBar() {
+        title = "Delicious"
+        
+        navigationController?.navigationBar.barTintColor = UIColor.darkBlue
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): UIColor.white]
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): UIColor.white]
     }
     
     private func layoutUI() {

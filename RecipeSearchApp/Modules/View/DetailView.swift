@@ -12,6 +12,7 @@ import BmoViewPager
 class DetailView: UIView {
     
     // MARK: - Properties
+    var recipe: Recipe?
 
     var dismissAction: (() -> Void)?
     var showRecipeAction: (() -> Void)?
@@ -31,36 +32,47 @@ class DetailView: UIView {
     }()
     
     private let categoryFoodLabel: UILabel = {
-        return UILabel(font: .systemFont(ofSize: 18, weight: .medium), textAlignment: .center, textColor: #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1))
+        let label = UILabel(font: .systemFont(ofSize: 18, weight: .medium), textAlignment: .center, textColor: #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1))
+        label.backgroundColor = UIColor.lightBlue
+        return label
     }()
 
     private let titleFood: UILabel = {
-        let label = UILabel(font: .systemFont(ofSize: 25, weight: .light), numberOfLines: 0, textAlignment: .center)
+        let label = UILabel(font: .systemFont(ofSize: 25, weight: .bold), numberOfLines: 0, textAlignment: .center, textColor: .white)
+        label.backgroundColor = UIColor.lightBlue
         return label
     }()
     
     private let labelOne: UILabel = {
-        return UILabel(font: .systemFont(ofSize: 14, weight: .semibold), textAlignment: .center, textColor: #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1))
+        let label = UILabel(font: .systemFont(ofSize: 14, weight: .semibold), textAlignment: .center, textColor: #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1))
+        label.backgroundColor = UIColor.darkBlue
+        return label
     }()
     
     private let labelTwo: UILabel = {
-        return UILabel(font: .systemFont(ofSize: 14, weight: .semibold), textAlignment: .center, textColor: #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1))
+        let label = UILabel(font: .systemFont(ofSize: 14, weight: .semibold), textAlignment: .center, textColor: #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1))
+        label.backgroundColor = UIColor.darkBlue
+        return label
     }()
     
     private let labelThree: UILabel = {
-        return UILabel(font: .systemFont(ofSize: 14, weight: .semibold), textAlignment: .center, textColor: #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1))
+        let label = UILabel(font: .systemFont(ofSize: 14, weight: .semibold), textAlignment: .center, textColor: #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1))
+        label.backgroundColor = UIColor.darkBlue
+        return label
     }()
     
     lazy private var stackView: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [labelOne,labelTwo,labelThree])
         stack.axis = .horizontal
         stack.distribution = .fillEqually
-        stack.spacing = 5
+        stack.spacing = 0
+        stack.backgroundColor = UIColor.darkBlue
         return stack
     }()
     
     private let infoLabel: UILabel = {
-        let label = UILabel(text: "Information", font: .systemFont(ofSize: 23, weight: .medium), textAlignment: .center)
+        let label = UILabel(text: "Information", font: .systemFont(ofSize: 23, weight: .medium), textAlignment: .center, textColor: .white)
+        label.backgroundColor = UIColor.darkBlue
         return label
     }()
     
@@ -74,6 +86,7 @@ class DetailView: UIView {
     
     lazy private var navigationBar: BmoViewPagerNavigationBar = {
         let view = BmoViewPagerNavigationBar()
+        view.backgroundColor = UIColor.darkBlue
         view.autoFocus = false
         return view
     }()
@@ -82,7 +95,7 @@ class DetailView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
+        backgroundColor = UIColor.lightBlue
         navigationBar.viewPager = viewPager
         layoutUI()
     }
@@ -119,20 +132,20 @@ class DetailView: UIView {
         
         stackView.snp.makeConstraints { (make) in
             make.top.equalTo(titleFood.snp.bottom).offset(16)
-            make.left.right.equalToSuperview().inset(10)
-            make.height.equalTo(30)
-        }
-        
-        infoLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(stackView.snp.bottom).offset(10)
-            make.left.right.equalToSuperview().inset(10)
+            make.left.right.equalToSuperview().inset(0)
             make.height.equalTo(35)
         }
         
+        infoLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(stackView.snp.bottom).offset(0)
+            make.left.right.equalToSuperview().inset(0)
+            make.height.equalTo(40)
+        }
+        
         navigationBar.snp.makeConstraints { (make) in
-            make.top.equalTo(infoLabel.snp.bottom).offset(10)
-            make.left.right.equalToSuperview().inset(10)
-            make.height.equalTo(30)
+            make.top.equalTo(infoLabel.snp.bottom).offset(0)
+            make.left.right.equalToSuperview().inset(0)
+            make.height.equalTo(35)
         }
         
         viewPager.snp.makeConstraints { (make) in
@@ -172,8 +185,8 @@ extension DetailView: BmoViewPagerDelegate, BmoViewPagerDataSource {
     
     func bmoViewPagerDataSourceNaviagtionBarItemNormalAttributed(_ viewPager: BmoViewPager, navigationBar: BmoViewPagerNavigationBar, forPageListAt page: Int) -> [NSAttributedString.Key : Any]? {
         return [
-            NSAttributedString.Key.strokeWidth     : 1.0,
-            NSAttributedString.Key.strokeColor     : UIColor.black,
+            NSAttributedString.Key.strokeWidth     : 2.0,
+            NSAttributedString.Key.strokeColor     : UIColor.orange,
             NSAttributedString.Key.foregroundColor : UIColor.groupTableViewBackground
         ]
     }
@@ -200,9 +213,15 @@ extension DetailView: BmoViewPagerDelegate, BmoViewPagerDataSource {
         switch page {
         case 0:
             let vc = IngredientController()
+            if let recipe = recipe {
+                vc.configurationText(recipe: recipe)
+            }
             return vc
         case 1:
-            let vc2 = UIViewController()
+            let vc2 = DietController()
+            if let recipe = recipe {
+                vc2.configurationText(recipe: recipe)
+            }
             return vc2
         case 2:
             return UIViewController()
@@ -213,7 +232,7 @@ extension DetailView: BmoViewPagerDelegate, BmoViewPagerDataSource {
     }
     
     func bmoViewPagerDataSourceNaviagtionBarItemHighlightedAttributed(_ viewPager: BmoViewPager, navigationBar: BmoViewPagerNavigationBar, forPageListAt page: Int) -> [NSAttributedString.Key : Any]? {
-        return [NSAttributedString.Key.foregroundColor: UIColor.black]
+        return [NSAttributedString.Key.foregroundColor: UIColor.orange]
     }
     
     func bmoViewPagerDataSourceNaviagtionBarItemSize(_ viewPager: BmoViewPager, navigationBar: BmoViewPagerNavigationBar, forPageListAt page: Int) -> CGSize {

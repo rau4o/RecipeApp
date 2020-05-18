@@ -1,18 +1,18 @@
 //
-//  IngredientController.swift
+//  DietController.swift
 //  RecipeSearchApp
 //
-//  Created by rau4o on 5/17/20.
+//  Created by rau4o on 5/18/20.
 //  Copyright © 2020 rau4o. All rights reserved.
 //
 
 import UIKit
 
-class IngredientController: UIViewController {
-        
+class DietController: UIViewController {
+    
     // MARK: - Properties
     
-    let ingredientTextView: UITextView = {
+    let dietTextView: UITextView = {
         let text = UITextView(isEditable: false, font: .systemFont(ofSize: 20, weight: .medium))
         text.sizeToFit()
         text.backgroundColor = UIColor.lightBlue
@@ -21,24 +21,24 @@ class IngredientController: UIViewController {
     }()
     
     // MARK: - Life Cycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         layoutUI()
     }
-
+    
     // MARK: - Helper function
     
     func configurationText(recipe: Recipe) {
-        ingredientTextView.text = recipe.ingredientLines.map({"● \($0)"}).joined(separator: "\n")
+        dietTextView.text = recipe.healthLabels.map({"● \($0)"}).joined(separator: "\n")
     }
     
     private func layoutUI() {
-        view.addSubview(ingredientTextView)
+        view.addSubview(dietTextView)
         
-        ingredientTextView.snp.makeConstraints { (make) in
+        dietTextView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
     }
+
 }

@@ -77,7 +77,6 @@ extension SearchController: UITableViewDelegate {
         let recipe = viewModel.getElements(at: indexPath.row)
         navigationController?.pushViewController(DetailController.shared, animated: true)
         DetailController.shared.detailView.configureUI(recipe: recipe)
-//        DetailController.shared.additionalLabel.text = recipe.ingredientLines.map({ ("● \($0)")}).joined(separator: "\n")
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -104,6 +103,9 @@ private extension SearchController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.searchController = searchController
         title = "Search"
+        navigationController?.navigationBar.barTintColor = UIColor.darkBlue
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): UIColor.white]
     }
     
     func setupTableView() {

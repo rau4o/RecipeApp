@@ -13,11 +13,10 @@ class DetailController: UIViewController {
     
     // MARK: - Properties
     
-    var recipe: Recipe?
-    
     var detailView = DetailView(frame: UIScreen.main.bounds)
     var scrollView = UIScrollView()
     static let shared = DetailController()
+//    let vc = IngredientController()
 
     // MARK: - Life Cycle
     
@@ -32,6 +31,7 @@ class DetailController: UIViewController {
         super.viewDidAppear(animated)
         navigationController?.navigationBar.isHidden = true
         tabBarController?.tabBar.isHidden = true
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,7 +56,7 @@ class DetailController: UIViewController {
 extension DetailController {
     
     func initialSetup() {
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.lightBlue
         layoutUI()
     }
     

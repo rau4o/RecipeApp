@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		66FC166EBB573B839B56458F /* Pods_RecipeSearchApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFEA441859BC1A6F0734AD6A /* Pods_RecipeSearchApp.framework */; };
+		AE02104524727D11003E135B /* DietController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02104424727D11003E135B /* DietController.swift */; };
+		AE02104724727D22003E135B /* HealthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02104624727D22003E135B /* HealthController.swift */; };
+		AE02104924727D86003E135B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02104824727D86003E135B /* UIColor+Extension.swift */; };
 		AE2630C9246983D700DF1926 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2630C8246983D700DF1926 /* MenuController.swift */; };
 		AE2630CB2469845200DF1926 /* MainCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2630CA2469845200DF1926 /* MainCollectionCell.swift */; };
 		AE2630CD2469895E00DF1926 /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2630CC2469895E00DF1926 /* FavoriteController.swift */; };
@@ -17,7 +20,6 @@
 		AE360A71246410CF00091C0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE360A6F246410CF00091C0E /* Main.storyboard */; };
 		AE360A73246410D000091C0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE360A72246410D000091C0E /* Assets.xcassets */; };
 		AE360A76246410D000091C0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE360A74246410D000091C0E /* LaunchScreen.storyboard */; };
-		AE7524AE2471C5600001E717 /* IngredientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7524AD2471C5600001E717 /* IngredientView.swift */; };
 		AE84C95C246D7EE200F7166B /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE84C95B246D7EE200F7166B /* UILabel+Extension.swift */; };
 		AE84C95E246D822E00F7166B /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE84C95D246D822E00F7166B /* UITextView+Extension.swift */; };
 		AE84C966246DB25900F7166B /* BEKCurveTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE84C960246DB25900F7166B /* BEKCurveTabbarController.swift */; };
@@ -44,6 +46,9 @@
 
 /* Begin PBXFileReference section */
 		0FBD97659229AC8288B388A3 /* Pods-RecipeSearchApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipeSearchApp.release.xcconfig"; path = "Target Support Files/Pods-RecipeSearchApp/Pods-RecipeSearchApp.release.xcconfig"; sourceTree = "<group>"; };
+		AE02104424727D11003E135B /* DietController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietController.swift; sourceTree = "<group>"; };
+		AE02104624727D22003E135B /* HealthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthController.swift; sourceTree = "<group>"; };
+		AE02104824727D86003E135B /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		AE2630C8246983D700DF1926 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		AE2630CA2469845200DF1926 /* MainCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionCell.swift; sourceTree = "<group>"; };
 		AE2630CC2469895E00DF1926 /* FavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
@@ -55,7 +60,6 @@
 		AE360A72246410D000091C0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE360A75246410D000091C0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE360A77246410D000091C0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AE7524AD2471C5600001E717 /* IngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientView.swift; sourceTree = "<group>"; };
 		AE84C95B246D7EE200F7166B /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		AE84C95D246D822E00F7166B /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		AE84C960246DB25900F7166B /* BEKCurveTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BEKCurveTabbarController.swift; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 				AECBCEA624647D7200D501EE /* UIView+Extension.swift */,
 				AE84C95B246D7EE200F7166B /* UILabel+Extension.swift */,
 				AE84C95D246D822E00F7166B /* UITextView+Extension.swift */,
+				AE02104824727D86003E135B /* UIColor+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -219,7 +224,6 @@
 				AECBCEA324647B7A00D501EE /* Cells */,
 				AEFBBD7824670F7B00FF22C5 /* DetailView.swift */,
 				AEA08DD22471A7B300F13D33 /* FavoriteView.swift */,
-				AE7524AD2471C5600001E717 /* IngredientView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -249,6 +253,8 @@
 			isa = PBXGroup;
 			children = (
 				AEA08DD024718A3000F13D33 /* IngredientController.swift */,
+				AE02104424727D11003E135B /* DietController.swift */,
+				AE02104624727D22003E135B /* HealthController.swift */,
 			);
 			path = ViewPagerController;
 			sourceTree = "<group>";
@@ -398,23 +404,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				AECBCEAF2464909100D501EE /* NetworkService.swift in Sources */,
+				AE02104724727D22003E135B /* HealthController.swift in Sources */,
 				AE2630C9246983D700DF1926 /* MenuController.swift in Sources */,
 				AE84C969246DB25900F7166B /* BEKTabBarViewModelType.swift in Sources */,
 				AECBCEA724647D7200D501EE /* UIView+Extension.swift in Sources */,
 				AE2630CF246AA95100DF1926 /* MenuViewModel.swift in Sources */,
 				AE84C966246DB25900F7166B /* BEKCurveTabbarController.swift in Sources */,
 				AECBCEAB24648E4C00D501EE /* NetworkProperties.swift in Sources */,
+				AE02104924727D86003E135B /* UIColor+Extension.swift in Sources */,
 				AE2630CB2469845200DF1926 /* MainCollectionCell.swift in Sources */,
 				AECBCEA924648AEC00D501EE /* RecipeNetworking.swift in Sources */,
 				AEA08DD124718A3000F13D33 /* IngredientController.swift in Sources */,
 				AE84C968246DB25900F7166B /* BEKCurveTabbar.swift in Sources */,
-				AE7524AE2471C5600001E717 /* IngredientView.swift in Sources */,
 				AE84C96D246DB2D700F7166B /* MyCustomTabBarViewModel.swift in Sources */,
 				AECBCEB72465B4C400D501EE /* SearchViewModel.swift in Sources */,
 				AECBCEA524647BA700D501EE /* SearchCell.swift in Sources */,
 				AE84C96A246DB25900F7166B /* TabbarHeightRatios.swift in Sources */,
 				AE360A6A246410CF00091C0E /* AppDelegate.swift in Sources */,
 				AE84C95E246D822E00F7166B /* UITextView+Extension.swift in Sources */,
+				AE02104524727D11003E135B /* DietController.swift in Sources */,
 				AEFBBD7924670F7B00FF22C5 /* DetailView.swift in Sources */,
 				AE360A6C246410CF00091C0E /* SceneDelegate.swift in Sources */,
 				AE2630CD2469895E00DF1926 /* FavoriteController.swift in Sources */,

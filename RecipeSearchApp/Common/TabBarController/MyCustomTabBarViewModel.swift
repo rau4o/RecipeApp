@@ -11,12 +11,12 @@ import Foundation
 import UIKit
 struct MyCustomTabBarViewModel: BEKTabBarViewModelType {
     let heightRatio: CGFloat = CGFloat(TabbarHeightRatios.bestSize.rawValue)
-    let containerColor: UIColor = .white
+    let containerColor: UIColor = UIColor.darkBlue
     let hideTitle: Bool = true
     let animationDuration: CGFloat = 0.3
     let animated: Bool = true
     let shadowColor: UIColor = .white
-    let shadowRadius: CGFloat = 16
+    let shadowRadius: CGFloat = 5
     let containerBorderWidth: CGFloat = 1.0
     let containerBorderColor: UIColor = .gray
     let selectedTextColor: UIColor = .yellow

@@ -35,6 +35,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let myViewModel = MyCustomTabBarViewModel()
         
         tabBarViewController.setupViewModel(viewModel: myViewModel)
+        firstViewController.navigationBar.backgroundColor = UIColor.darkBlue
+        secondViewController.navigationBar.backgroundColor = UIColor.darkBlue
+        thirdViewController.navigationBar.backgroundColor = UIColor.darkBlue
+        
+        tabBarViewController.tabBar.backgroundColor = UIColor.lightBlue
         
         tabBarViewController.setViewControllers([firstViewController, secondViewController, thirdViewController], animated: true)
         return tabBarViewController

@@ -27,7 +27,7 @@ class MainCollectionCell: UITableViewCell {
     }()
     
     private let titleFood: UILabel = {
-        let label = UILabel(font: .systemFont(ofSize: 25, weight: .light), numberOfLines: 0, textColor: .white)
+        let label = UILabel(font: .systemFont(ofSize: 25, weight: .bold), numberOfLines: 0, textColor: .white)
 //        label.addShadowLabel()
         label.layer.shadowColor = UIColor.black.cgColor
         label.layer.shadowOpacity = 0.55
@@ -62,6 +62,7 @@ class MainCollectionCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        backgroundColor = UIColor.lightBlue
         layoutUI()
     }
     
