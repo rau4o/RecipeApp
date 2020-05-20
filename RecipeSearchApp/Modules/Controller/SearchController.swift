@@ -39,8 +39,11 @@ class SearchController: UIViewController {
         super.viewDidAppear(animated)
         clearSelectionForCell()
         navigationController?.navigationBar.isHidden = false
+        self.tabBarController?.tabBar.layer.zPosition = 0
     }
 }
+
+// MARK: - SearchProtocol
 
 extension SearchController: SearchProtocol {
     func updateTableView() {
@@ -55,6 +58,8 @@ extension SearchController: SearchProtocol {
         activityIndicatorView.stopAnimating()
     }
 }
+
+// MARK: - UISearchBarDelegate
 
 extension SearchController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -73,6 +78,8 @@ extension SearchController: UISearchBarDelegate {
     }
 }
 
+// MARK: - UITableViewDelegate
+
 extension SearchController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let recipe = viewModel.getElements(at: indexPath.row)
@@ -85,6 +92,8 @@ extension SearchController: UITableViewDelegate {
         return cellHeight
     }
 }
+
+// MARK: - Setup Layouts
 
 private extension SearchController {
     

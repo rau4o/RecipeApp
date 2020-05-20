@@ -57,6 +57,8 @@ class DetailController: UIViewController {
     }
 }
 
+// MARK: - Setup Layout
+
 extension DetailController {
     
     func initialSetup() {
