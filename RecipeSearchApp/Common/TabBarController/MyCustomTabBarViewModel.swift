@@ -16,7 +16,7 @@ struct MyCustomTabBarViewModel: BEKTabBarViewModelType {
     let animationDuration: CGFloat = 0.3
     let animated: Bool = true
     let shadowColor: UIColor = .white
-    let shadowRadius: CGFloat = 5
+    let shadowRadius: CGFloat = 2
     let containerBorderWidth: CGFloat = 1.0
     let containerBorderColor: UIColor = .gray
     let selectedTextColor: UIColor = .yellow

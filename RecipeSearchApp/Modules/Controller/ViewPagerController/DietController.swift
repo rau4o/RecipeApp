@@ -30,7 +30,7 @@ class DietController: UIViewController {
     // MARK: - Helper function
     
     func configurationText(recipe: Recipe) {
-        dietTextView.text = recipe.healthLabels.map({"● \($0)"}).joined(separator: "\n")
+        dietTextView.text = recipe.cautions.map({"● \($0)"}).joined(separator: "\n")
     }
     
     private func layoutUI() {

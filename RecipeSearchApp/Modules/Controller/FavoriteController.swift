@@ -19,10 +19,25 @@ class FavoriteController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        intialSetup()
+    }
+}
 
-        view.backgroundColor = .white
-        title = "Favorites"
+private extension FavoriteController {
+    
+    func intialSetup() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        view.backgroundColor = UIColor.lightBlue
+        setupNavBar()
         layoutUI()
+    }
+    
+    private func setupNavBar() {
+        title = "Favorites"
+        
+        navigationController?.navigationBar.barTintColor = UIColor.darkBlue
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): UIColor.white]
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): UIColor.white]
     }
     
     private func layoutUI() {

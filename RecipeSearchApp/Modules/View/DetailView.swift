@@ -16,12 +16,21 @@ class DetailView: UIView {
 
     var dismissAction: (() -> Void)?
     var showRecipeAction: (() -> Void)?
+    var favoriteAction: (() -> Void)?
     
     let imageView: UIImageView = {
         let image = UIImageView()
         image.backgroundColor = .black
         image.contentMode = .scaleToFill
         return image
+    }()
+    
+    let favoriteButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "unfav"), for: .normal)
+        button.addShadow()
+        button.addTarget(self, action: #selector(favoriteDidPressed(_:)), for: .touchUpInside)
+        return button
     }()
     
     private let backButton: UIButton = {
@@ -105,7 +114,7 @@ class DetailView: UIView {
     
     private func layoutUI() {
         
-        addSubviews([imageView, backButton, categoryFoodLabel, titleFood, stackView, infoLabel, navigationBar, viewPager])
+        addSubviews([imageView, backButton, favoriteButton,categoryFoodLabel, titleFood, stackView, infoLabel, navigationBar, viewPager])
         
         imageView.snp.makeConstraints { (make) in
             make.top.left.right.equalToSuperview()
@@ -117,6 +126,13 @@ class DetailView: UIView {
             make.left.equalTo(imageView.snp.left).inset(5)
             make.width.equalTo(100)
             make.height.equalTo(40)
+        }
+        
+        favoriteButton.snp.makeConstraints { (make) in
+            make.top.equalTo(imageView.snp.top).inset(30)
+            make.right.equalTo(imageView.snp.right).offset(5)
+            make.width.equalTo(100)
+            make.height.equalTo(50)
         }
         
         categoryFoodLabel.snp.makeConstraints { (make) in
@@ -175,6 +191,10 @@ class DetailView: UIView {
         showRecipeAction?()
     }
     
+    @objc private func favoriteDidPressed(_ sender: UIButton) {
+        favoriteAction?()
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -225,7 +245,11 @@ extension DetailView: BmoViewPagerDelegate, BmoViewPagerDataSource {
             }
             return vc2
         case 2:
-            return UIViewController()
+            let vc3 = HealthController()
+            if let recipe = recipe {
+                vc3.configurationText(recipe: recipe)
+            }
+            return vc3
         default:
             break
         }

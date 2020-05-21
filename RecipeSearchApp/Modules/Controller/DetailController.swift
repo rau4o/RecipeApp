@@ -15,6 +15,7 @@ class DetailController: UIViewController {
     
     var detailView = DetailView(frame: UIScreen.main.bounds)
     static let shared = DetailController()
+    var favorited: Bool = true
     
     lazy var scrollView: UIScrollView = {
         let scroll = UIScrollView()
@@ -53,6 +54,17 @@ class DetailController: UIViewController {
         detailView.dismissAction = { [weak self] in
             guard let self = self else {return}
             self.navigationController?.popViewController(animated: true)
+        }
+        
+        detailView.favoriteAction = { [weak self] in
+            guard let self = self else {return}
+            self.favorited = !self.favorited
+            
+            if self.favorited {
+                self.detailView.favoriteButton.setImage(UIImage(named: "fav"), for: .normal)
+            } else {
+                self.detailView.favoriteButton.setImage(UIImage(named: "unfav"), for: .normal)
+            }
         }
     }
 }

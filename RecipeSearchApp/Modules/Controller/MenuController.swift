@@ -35,7 +35,6 @@ class MenuController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = true
         initialSetup()
         fetchFood()
     }
@@ -54,7 +53,7 @@ class MenuController: UIViewController {
     
     private func fetchFood() {
         indicatorView.startAnimating()
-        viewModel.searchRecipe(with: "hello") { [weak self] in
+        viewModel.searchRecipe(with: "popular") { [weak self] in
             guard let self = self else {return}
             self.tableView.reloadData()
             self.indicatorView.stopAnimating()
@@ -115,10 +114,11 @@ extension MenuController: UITableViewDataSource {
 
 // MARK: - Setup Views
 
-extension MenuController {
+private extension MenuController {
     
     func initialSetup() {
         view.backgroundColor = UIColor.lightBlue
+        navigationController?.navigationBar.prefersLargeTitles = true
         layoutUI()
         configureIndicatorView()
         setupNavBar()
