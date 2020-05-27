@@ -11,12 +11,16 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    
+    static let shared = SceneDelegate()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = getConfiguredController()
+//        window?.rootViewController = getConfiguredController()
+//        window?.rootViewController = UINavigationController(rootViewController: WelcomeController())
+        window?.rootViewController = WelcomeController()
         window?.makeKeyAndVisible()
         window?.windowScene = windowScene
     }

@@ -207,7 +207,7 @@ extension DetailView: BmoViewPagerDelegate, BmoViewPagerDataSource {
     func bmoViewPagerDataSourceNaviagtionBarItemNormalAttributed(_ viewPager: BmoViewPager, navigationBar: BmoViewPagerNavigationBar, forPageListAt page: Int) -> [NSAttributedString.Key : Any]? {
         return [
             NSAttributedString.Key.strokeWidth     : 2.0,
-            NSAttributedString.Key.strokeColor     : UIColor.orange,
+            NSAttributedString.Key.strokeColor     : UIColor.orangeCustomColor,
             NSAttributedString.Key.foregroundColor : UIColor.groupTableViewBackground
         ]
     }
@@ -257,7 +257,7 @@ extension DetailView: BmoViewPagerDelegate, BmoViewPagerDataSource {
     }
     
     func bmoViewPagerDataSourceNaviagtionBarItemHighlightedAttributed(_ viewPager: BmoViewPager, navigationBar: BmoViewPagerNavigationBar, forPageListAt page: Int) -> [NSAttributedString.Key : Any]? {
-        return [NSAttributedString.Key.foregroundColor: UIColor.orange]
+        return [NSAttributedString.Key.foregroundColor: UIColor.orangeCustomColor]
     }
     
     func bmoViewPagerDataSourceNaviagtionBarItemSize(_ viewPager: BmoViewPager, navigationBar: BmoViewPagerNavigationBar, forPageListAt page: Int) -> CGSize {

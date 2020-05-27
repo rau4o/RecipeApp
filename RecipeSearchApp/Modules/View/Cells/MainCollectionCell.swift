@@ -22,7 +22,7 @@ class MainCollectionCell: UITableViewCell {
     
     private let categoryFoodLabel: UILabel = {
         let label = UILabel(font: .systemFont(ofSize: 20, weight: .medium), textColor: .white)
-        label.backgroundColor = .orange
+        label.backgroundColor = UIColor.orangeCustomColor
         return label
     }()
     

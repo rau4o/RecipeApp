@@ -9,8 +9,9 @@
 import UIKit
 
 private let cellId = "cellId"
+private let headerCellId = "headerCellId"
 private let heightCell: CGFloat = 180
-private let headerHeight: CGFloat = 30
+private let headerHeight: CGFloat = 250
 private let space: CGFloat = 10
 
 class MenuController: UIViewController {
@@ -21,8 +22,9 @@ class MenuController: UIViewController {
     lazy var indicatorView = UIActivityIndicatorView()
     
     lazy var tableView: UITableView = {
-        let tableView = UITableView()
+        let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.register(MainCollectionCell.self, forCellReuseIdentifier: cellId)
+        tableView.register(HeaderCell.self, forHeaderFooterViewReuseIdentifier: headerCellId)
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
         tableView.delegate = self
@@ -76,18 +78,23 @@ extension MenuController: UITableViewDelegate {
 
 extension MenuController: UITableViewDataSource {
     
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView()
-        view.backgroundColor = UIColor.lightBlue
-        let label = UILabel(text: "LASTEST", font: .systemFont(ofSize: 20, weight: .medium), textColor: .white)
-        view.addSubview(label)
-        label.snp.makeConstraints { (make) in
-            make.top.left.equalTo(view).inset(5)
-            make.bottom.equalTo(view)
-            make.width.equalTo(100)
-        }
+        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerCellId) as? HeaderCell
         return view
     }
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let view = UIView()
+//        view.backgroundColor = UIColor.lightBlue
+//        let label = UILabel(text: "LASTEST", font: .systemFont(ofSize: 20, weight: .medium), textColor: .white)
+//        view.addSubview(label)
+//        label.snp.makeConstraints { (make) in
+//            make.top.left.equalTo(view).inset(5)
+//            make.bottom.equalTo(view)
+//            make.width.equalTo(100)
+//        }
+//        return view
+//    }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return headerHeight
@@ -130,6 +137,7 @@ private extension MenuController {
         navigationController?.navigationBar.barTintColor = UIColor.darkBlue
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): UIColor.white]
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): UIColor.white]
+        navigationController?.navigationItem.setHidesBackButton(true, animated: true)
     }
     
     private func layoutUI() {
